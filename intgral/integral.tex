@@ -1,0 +1,229 @@
+\documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
+
+% パッケージ
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[dvipdfmx,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{color}
+\definecolor{TiffanyBlue}{RGB}{10, 186, 181}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\href{https://www.koito.co.jp}{\includegraphics[height=0.7cm]{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% リンクをティファニーブルー+下線にするコマンド
+\newcommand{\uref}[1]{\hyperref[#1]{\textcolor{TiffanyBlue}{\underline{\ref*{#1}}}}}
+
+% 定理環境
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{tabun}[]{多分}
+
+\renewcommand{\proofname}{証明}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+
+
+% タイトル
+\title{ルベーグ積分のドキュメント}
+\author{電子技術部 電子品質課}
+\date{\today}
+
+
+
+\begin{document}
+\begin{comment}
+\begin{titlepage}
+\maketitle
+\thispagestyle{empty}
+\end{titlepage}
+\end{comment}
+
+%\tableofcontents
+%\newpage
+\begin{abstract}
+    積分のメモ．
+    解説のために「多分」というセクションを設けました．
+    怪しいのでいつか消します．
+    空間といったら普通は
+    集合と付随してなにかしらの
+    構造がありますが，
+    ここで単に空間と言ったときは
+    構造に関してはあまり考えないこととします．
+    一般的な集合と捉えてもらっても問題ないと思います．
+    構造が必要なときはユークリッド空間，
+    バナッハ空間など具体的に明示します．
+    この分野では単に集合といったときは，空間の
+    部分集合のことを指すらしいです．
+    間違いをみつけたら
+    メールd-nishida@koito.co.jp
+    またはチャットs250113@koito.com
+    まで
+    ご連絡ください．
+\end{abstract}
+
+\begin{comment}
+% --- 2. スタート ---
+
+\section{予備概念}
+ある空間の中の図形（と呼ばれる集合）を$A,B$とする．$A,B$が共通点を持たないときに，
+$A$と$B$を合わせた図形を$A + B$とする．
+無限を認める三つ以上の図形に対しても$A+B+C\cdots$が同様に定義できる．
+$A$の面積と呼ばれるものが定義可能なとき，その面積を$|A|$と書くことにする．
+\end{comment}
+
+% --- 3. まあいろいろ ---
+
+\section{測度}
+外測度ってのはだいたいのやつで，測度ってのが厳密なやつらしいです．
+
+\begin{definition}\label{def:syuugoukannsuu}
+    空間$X$とその部分集合族$\mathfrak{F}$と集合$F\subset X$が与えられたとき，
+    点関数と集合関数を次のように定義する．
+    \begin{enumerate}
+        \item 始域が$F$の関数を$F$\textbf{で定義された点関数}という
+        \item $F$の部分集合かつ$\mathfrak{F}$に属する$E$を変数とする関数を，
+        $F$\textbf{で定義された}
+        $\mathfrak{F}$\textbf{-集合関数}という
+    \end{enumerate}
+\end{definition}
+だいたいは$F\in \mathfrak{F}$である．\\
+明らかなときは$\mathfrak{F}$を省略する．
+
+
+
+また，点関数・集合関数の終域は
+\begin{itemize}
+    \item $\mathbb{R} \cup \{ +\infty,-\infty\}$
+    \item $\mathbb{C}$
+\end{itemize}
+のどちらかとする．
+
+\begin{tabun}
+    $F$が書かれていないときは$F=X$である．
+\end{tabun}
+
+\begin{tabun}
+    終域に無限を追加する理由は空間全体の面積などを定義したりすることがあるから．
+    例えば$\mathbb{R}^2$全体の面積は無限である．積分では負の面積を扱うこともあるから
+    負の無限も必要である．
+\end{tabun}
+
+\begin{definition}
+空間$X$の部分集合族$\mathfrak{B}$があって
+\begin{enumerate}
+    \item $\phi \in \mathfrak{B}$
+    \item $E\in \mathfrak{B}$ならば$E^c\in \mathfrak{B}$
+    \item $E_n\in \mathfrak{B}(n=1,2,\ldots)$ならば
+    $\displaystyle\bigcup_{n=1}^{\infty}E_n\in \mathfrak{B}$
+\end{enumerate}
+の三つをみたすとき$\mathfrak{B}$を\textbf{完全加法族}，\textbf{可算加法族}
+，$\mathbf{\sigma}$\textbf{加法族}という．
+\end{definition}
+
+\begin{proposition}
+    $\sigma$加法族は$X\in \mathfrak{B}$であり，
+    さらに$\mathfrak{B}$に属する集合の和差交わりを可算回行ったものは$\mathfrak{B}$に属する．
+\end{proposition}
+
+\begin{proof}
+    前者については$1$と$2$から導ける．後者について，
+    和差交わりを可算回行ったものは
+    ドモルガンの法則と分配法則より，
+    $A-B=A\cap (A\cap B)^c,
+    A\cap B=(A^c\cup B^c)^c$
+    と$2$を用いることにより$3$の形に帰着させることができる．
+\end{proof}
+
+\begin{definition}
+    空間$X$とその部分集合の$\sigma$加法族$\mathfrak{B}$があって，$\mathfrak{B}-$集合関数
+    (\uref{def:syuugoukannsuu})
+    $\mu (A)$が
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item $0\leq \mu (A)\leq \infty,\, \mu (\phi)=0$\quad(非負性)
+        \item $A_n\in \mathfrak{B}(n=1,2,\ldots),A_j\cap A_k=\phi \, (j\neq k)$ならば
+        $\displaystyle\mu \left(\sum_{n=1}^\infty A_n \right) =
+         \sum_{n=1}^\infty \mu (A_n)$
+    \end{enumerate}
+    を満たすとき$\mu$を\textbf{$\mathfrak{B}$}\textbf{で定義された測度}という．
+    単に測度というときもある．
+\end{definition}
+
+%    \item $X\in \mathfrak{B}$
+%    \item $\mathfrak{B}$に属する集合の和差交わりを可算回行った集合は$\mathfrak{B}$に属する
+
+\begin{proposition}
+    $\mathfrak{B}$で定義された測度$\mu$に関して次が成り立つ．
+    \begin{enumerate}
+        \item $A,B\in \mathfrak{B}, A\subset B$ならば$\mu (A) \leq \mu (B)$である．\\
+            特に$\mu (A) < \infty$ならば$\mu (B-A)=\mu (B)-\mu (A)$
+        \item $A_n\in \mathfrak{B}(n=1,2,\ldots)$ならば$\mu \left( 
+            \displaystyle\bigcup_{n=1}^\infty A_n\right) \leq 
+            \displaystyle\sum_{n=1}^\infty \mu (A_n)$
+        \item 非負性の$\mu (\phi )=0$を"少なくとも一つの$A\in\mathfrak{B}$に対して
+            $\mu (A) <\infty $"としても全体として同値である．
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{definition}
+    空間$X$にその部分集合の$\sigma$-加法族$\mathfrak{B}$と
+    $\mathfrak{B}$で定義された測度$\mu$の組$(X,\mathfrak{B},\mu )$
+    を\textbf{測度空間}という．$X(\mathfrak{B},\mu )$と書くこともある．
+\end{definition}
+
+
+
+\begin{definition}
+    空間$X$のすべての部分集合$A$に対して定義された集合関数$\Gamma (A)$があって
+    \begin{enumerate}
+        \item $0\leq \Gamma (A) \leq \infty , \Gamma (\phi)=0$
+        \item $A\subset B\, \text{ならば}\, \Gamma (A) \leq \Gamma (B)$
+        \item $\Gamma \left( \displaystyle \bigcup_{n=1}^\infty A_n\right)\leq \displaystyle
+        \sum_{n=1}^\infty
+        \Gamma (A_n)$
+    \end{enumerate}
+    の三つを満たすとき$\Gamma$を\textbf{カラテオドリ外測度}または単に\textbf{外測度}という．
+\end{definition}
+
+
+
+
+\begin{definition}
+    $\mu$を$\mathbb{R}^n$上のLebesgue測度とするとき，
+    Lebesgue可測集合$E\subset \mathbb{R}^n$上の
+    Lebesgue可測関数$f(x)$に対して積分，
+    $\displaystyle\int_{E}fd\mu=\int_E\mathfrak{R}d\mu+i\int_E\mathfrak{I}d\mu$
+    を\textbf{Lebesgue積分}といい，\textbf{$f$は$E$で積分可能である}という．
+\end{definition}
+
+
+
+
+% 参考文献
+\begin{thebibliography}{99}
+\bibitem{ref1} 伊藤清三, ``ルベーグ積分入門,'' 裳華房, 2024.
+\end{thebibliography}
+
+\end{document}
