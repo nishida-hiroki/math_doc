@@ -1,0 +1,79 @@
+\documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[dvipdfmx,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{color}
+\definecolor{TiffanyBlue}{RGB}{10, 186, 181}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\href{https://www.koito.co.jp}{\includegraphics[height=0.7cm]{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% リンクをティファニーブルー+下線にするコマンド
+\newcommand{\uref}[1]{\hyperref[#1]{\textcolor{TiffanyBlue}{\underline{\ref*{#1}}}}}
+
+% 定理環境
+\theoremstyle{definition}
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+\newtheorem{tabun}[]{多分}
+
+\renewcommand{\proofname}{証明}
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{%
+  \par\pushQED{\qed}%
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep\bfseries#1\@addpunct{.}]\ignorespaces
+}{%
+  \popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+
+
+\begin{document}
+\begin{abstract}
+    円分多項式に関するあれこれ
+\end{abstract}
+
+\section{円分体}
+\begin{definition}
+    $\zeta^m=1$を満たす元$\zeta$を
+    $1$\textbf{の}$m$\textbf{乗根}という．
+    $1$の$m$乗根という．
+    $1$の$m$乗根$\zeta$で$1\leq d<m$なる
+    整数$d$について$\zeta^d\neq 1$となるものを
+    $1$\textbf{の原始}$m$\textbf{乗根}という．
+\end{definition}
+
+\begin{lemma}
+    $\Omega$を代数的閉体とするとき次は同値である．
+    \begin{enumerate}
+        \item $1$の原始$m$乗根が存在する．
+        \item $1$の$m$乗根全体が位数$m$の巡回群をなす．
+        \item $\Omega$の標数を$p$とするとき$p$は$m$と互いに素である．
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    $2\Rightarrow 1$：巡回群の生成元が$1$の原始$m$乗根である．
+    $1\Rightarrow 3$：対偶を示す．$m=pn\, (n\in \mathbb{N})$と表すことができる．
+    $\zeta$を$m$乗根とすると$\zeta^m=\zeta^{pn}=(\zeta^n)^p=1$である．
+    $X^p-1=(X-1)^p$であることから$\zeta^n=1$となり，
+    $1$の原始$m$乗根は存在しない．
+    $3\Rightarrow 2$
+\end{proof}
+
+\end{document}
