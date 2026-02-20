@@ -124,7 +124,22 @@ $A$の面積と呼ばれるものが定義可能なとき，その面積を$|A|$
     負の無限も必要である．
 \end{tabun}
 
+
+
+
 \begin{definition}
+    空間$X$のすべての部分集合$A$に対して定義された集合関数$\Gamma (A)$があって
+    \begin{enumerate}
+        \item $0\leq \Gamma (A) \leq \infty , \Gamma (\phi)=0$
+        \item $A\subset B\, \text{ならば}\, \Gamma (A) \leq \Gamma (B)$
+        \item $\Gamma \left( \displaystyle \bigcup_{n=1}^\infty A_n\right)\leq \displaystyle
+        \sum_{n=1}^\infty
+        \Gamma (A_n)$
+    \end{enumerate}
+    の三つを満たすとき$\Gamma$を\textbf{カラテオドリ外測度}または単に\textbf{外測度}という．
+\end{definition}
+
+\begin{definition}\label{def:sigmakahouzoku}
 空間$X$の部分集合族$\mathfrak{B}$があって
 \begin{enumerate}
     \item $\phi \in \mathfrak{B}$
@@ -150,8 +165,12 @@ $A$の面積と呼ばれるものが定義可能なとき，その面積を$|A|$
     と$2$を用いることにより$3$の形に帰着させることができる．
 \end{proof}
 
+
+
 \begin{definition}
-    空間$X$とその部分集合の$\sigma$加法族$\mathfrak{B}$があって，$\mathfrak{B}-$集合関数
+    空間$X$とその部分集合の$\sigma$加法族
+    (\uref{def:sigmakahouzoku})
+    $\mathfrak{B}$があって，$\mathfrak{B}-$集合関数
     (\uref{def:syuugoukannsuu})
     $\mu (A)$が
     \begin{enumerate}
@@ -190,17 +209,7 @@ $A$の面積と呼ばれるものが定義可能なとき，その面積を$|A|$
 
 
 
-\begin{definition}
-    空間$X$のすべての部分集合$A$に対して定義された集合関数$\Gamma (A)$があって
-    \begin{enumerate}
-        \item $0\leq \Gamma (A) \leq \infty , \Gamma (\phi)=0$
-        \item $A\subset B\, \text{ならば}\, \Gamma (A) \leq \Gamma (B)$
-        \item $\Gamma \left( \displaystyle \bigcup_{n=1}^\infty A_n\right)\leq \displaystyle
-        \sum_{n=1}^\infty
-        \Gamma (A_n)$
-    \end{enumerate}
-    の三つを満たすとき$\Gamma$を\textbf{カラテオドリ外測度}または単に\textbf{外測度}という．
-\end{definition}
+
 
 
 
