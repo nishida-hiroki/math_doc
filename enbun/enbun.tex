@@ -113,4 +113,32 @@
     この写像が求める準同型である．
 \end{proof}
 
+\begin{definition}
+
+    整数$1,2,\ldots,m$のなかで$m$と互いに素な整数の個数を$\phi (m)$と書き，
+    これを\textbf{オイラーの関数}という．ただし$\phi (1)=1$とする．
+\end{definition}
+
+\begin{lemma}
+    $\phi (m)= |(\mathbb{Z}/m\mathbb{Z})^\times|$
+    であり，標数$p$が$m$と互いに素なら$\phi (m)$
+    は$1$の原始$m$乗根の数に等しい．
+\end{lemma}
+
+\begin{proof}
+    零環の可逆元の個数は$1$とみなす．前半は明らか．
+    標数$p$と$m$が互いに素のとき$1$の原始$m$乗根が
+    存在する．これを$\zeta_m$とする．$1$の$m$乗根
+    $\{ \zeta_m,\zeta_m^2,\ldots, \zeta_m^m \}$
+    のうち原始$m$乗根でないものの数を数える．
+    $m$乗根であって原始$m$乗根でないものを
+    $\zeta_m^s$とすると，ある整数$1\leq d < m$
+    が存在して$\zeta_m^{sd}=1$となる．
+    ここで$sd$は$m$の倍数である．
+    仮にそうでない場合$t\equiv sd,\, (\text{mod}\, m)$を
+    とれば$\zeta_m^t=1$となり原始であることと矛盾する．
+    よって$s$は零因子であり，個数は一致する．
+\end{proof}
+
+
 \end{document}
