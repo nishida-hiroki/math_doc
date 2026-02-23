@@ -158,7 +158,7 @@ $\sigma (\zeta_m)$も$1$の原始$m$乗根である．
 $1$の$m$乗根は$d\mid m$について$1$の$d$乗根でもあるから次が成り立つ．
 \[ X^m-1=\Pi_{d\mid m}\Phi_d(X)\]
 $d$の小さい順に$\Phi_d(X)$を考えるといい．
-\begin{lemma}
+\begin{lemma}\label{lemma:ensyu toubun takousiki keisuu seisuu}
     素体が$\mathbb{Q}$の体の円周等分多項式の係数は整数である．
 \end{lemma}
 
@@ -171,7 +171,6 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     \Phi_m(X)=\frac{X^m-1}{\Pi_{d\mid m,d<m}\Phi_d(X)}
     \]
     を考える．帰納法の仮定とガウスの補題（原始多項式の積は原始多項式）
-    (アティマク)
     より右辺の分母は原始多項式である．
     分子も明らかに原始多項式である．
     分母と分子がモニックであることから$\Phi_m(X)$もモニックである．
@@ -186,10 +185,16 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     この条件を満たす$a$は$1$のみである．
     よって$\Phi_m(X)$は整数係数である．
 \end{proof}
+自分で書いててなんだが上の証明は冗長すぎる．
+モニックな整数係数でモニックな整数係数をわりきれてるんだから
+商もモニックな整数係数だろ．
 \begin{theorem}
     体の標数を$0$とする．このとき$\Phi_m(X)$は$\mathbb{Q}$上既約である．
 \end{theorem}
-
+\begin{proof}
+    補題\uref{lemma:ensyu toubun takousiki keisuu seisuu}より
+    円周等分多項式は整数係数である．
+\end{proof}
 
 
 % 参考文献
