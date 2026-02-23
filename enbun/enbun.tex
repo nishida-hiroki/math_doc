@@ -140,5 +140,24 @@
     よって$s$は零因子であり，個数は一致する．
 \end{proof}
 
+\begin{definition}
+    $1$の原始$m$乗根全体を根にする最高次係数$1$の多項式$\Phi_m(X)$を
+    \textbf{円周等分多項式}という．また，$\Phi_m(X)=0$を
+    \textbf{円周等分方程式}という．
+\end{definition}
 
+$\Omega$を代数閉体として$\sigma$を任意のその体自己同型写像とすると
+$1$の原始$m$乗根$\zeta_m$に対して
+$\sigma (\zeta_m)$も$1$の原始$m$乗根である．
+そうでなければ$\sigma (\zeta_m)^d=\sigma(\zeta_m^d)=1\Rightarrow\zeta_m^d=1$
+となって矛盾する．つまり$\sigma$は$1$の原始$m$乗根の置換である．
+つまり円周等分多項式は$\sigma$で不変である．
+さらにすべての自己同型写像の不変体は素体であるから
+円周等分多項式の係数は素体の元である．
+$1$の$m$乗根は$d\mid m$について$1$の$d$乗根でもあるから次が成り立つ．
+\[ X^m-1=\Pi_{d\mid m}\Phi_d(X)\]
+$d$の小さい順に$\Phi_d(X)$を考えるといい．
+\begin{theorem}
+    体の標数を$0$とする．このとき$\Phi_m(X)$は$\mathbb{Q}$上既約である．
+\end{theorem}
 \end{document}
