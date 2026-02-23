@@ -1,6 +1,7 @@
 \documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
 
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{url}
@@ -157,7 +158,45 @@ $\sigma (\zeta_m)$も$1$の原始$m$乗根である．
 $1$の$m$乗根は$d\mid m$について$1$の$d$乗根でもあるから次が成り立つ．
 \[ X^m-1=\Pi_{d\mid m}\Phi_d(X)\]
 $d$の小さい順に$\Phi_d(X)$を考えるといい．
+\begin{lemma}
+    素体が$\mathbb{Q}$の体の円周等分多項式の係数は整数である．
+\end{lemma}
+
+\begin{proof}
+    $\Phi_m(X)$の$m$に関する帰納法で示す．
+    $m=1$のときは明らかに原始多項式（ガウスの補題の方の）である．
+    $m$が$2$以上のとき$d<m$なるすべての$d$で$\Phi_d(X)$が原始多項式
+    であることを仮定する．ここで
+    \[
+    \Phi_m(X)=\frac{X^m-1}{\Pi_{d\mid m,d<m}\Phi_d(X)}
+    \]
+    を考える．帰納法の仮定とガウスの補題（原始多項式の積は原始多項式）
+    (アティマク)
+    より右辺の分母は原始多項式である．
+    分子も明らかに原始多項式である．
+    分母と分子がモニックであることから$\Phi_m(X)$もモニックである．
+    $\Phi_m(X)$の各係数の分母の最小公倍数を$a$とおく．
+    さらに$\displaystyle f(X)\coloneqq a\cdot\Phi_m(X)$
+    とおくと$f(X)$は原始多項式である．これを用いると
+    \[
+    f(X)\cdot \Pi_{d\mid m,d<m}\Phi_d(X)=a(X^m-1)
+    \]
+    となる．左辺のどちらも原始多項式であるから，
+    ガウスの補題より右辺も原始多項式である．
+    この条件を満たす$a$は$1$のみである．
+    よって$\Phi_m(X)$は整数係数である．
+\end{proof}
 \begin{theorem}
     体の標数を$0$とする．このとき$\Phi_m(X)$は$\mathbb{Q}$上既約である．
 \end{theorem}
+
+
+
+% 参考文献
+\begin{thebibliography}{99}
+\bibitem{ref1} 桂 利行, ``代数学III 体とガロア理論,'' 東京大学出版会, 2017.
+\bibitem{ref2} M.F.Atiyah I.G.Macdonald, 
+``Introduction to Commutative Algebra,'' Addison-Wesley, 1969.
+\end{thebibliography}
+
 \end{document}
