@@ -52,7 +52,6 @@
 \begin{definition}
     $\zeta^m=1$を満たす元$\zeta$を
     $1$\textbf{の}$m$\textbf{乗根}という．
-    $1$の$m$乗根という．
     $1$の$m$乗根$\zeta$で$1\leq d<m$なる
     整数$d$について$\zeta^d\neq 1$となるものを
     $1$\textbf{の原始}$m$\textbf{乗根}という．
@@ -63,7 +62,7 @@
     \begin{enumerate}
         \item $1$の原始$m$乗根が存在する．
         \item $1$の$m$乗根全体が位数$m$の巡回群をなす．
-        \item $\Omega$の標数を$p$とするとき$p$は$m$と互いに素である．
+        \item $\Omega$の標数を$p$とするとき$p$は$m$と互いに素である．または$p$は$0$である．
     \end{enumerate}
 \end{lemma}
 
@@ -94,11 +93,24 @@
 \end{theorem}
 
 \begin{proof}
-    $\zeta_m$は分離的であることから$F(\zeta_m)/F$は分離拡大
+    $\zeta_m$は$X^m-1$が分離的であることから$F(\zeta_m)/F$は分離拡大
     である．$\zeta_m$の最小多項式の根全体が
     $\langle\zeta_m\rangle$であることから
     正規拡大であることもわかり，
     $F(\zeta_m)/F$はガロア拡大である．
+    $\sigma \in \mathrm{Gal}(F(\zeta_m)/F)$を一つとる．
+    $\sigma$は$X^m-1$の根をうつすから，ある整数
+    $s\, (1\leq s \leq m-1)$が存在して
+    $\sigma(\zeta_m)=\zeta_m^s$となる．
+    また，$\tau \in \mathrm{Gal}(F(\zeta_m)/F),\, \tau(\zeta_m)=\zeta_m^t$
+    に対して
+    $\sigma\circ\tau (\zeta_m)=\sigma(\zeta_m^t)
+    =\sigma(\zeta_m)^t=\zeta_m^{st}=\zeta_m^{ts}
+    =\tau(\zeta_m)^s=\tau(\zeta_m^s)=\tau\circ\sigma (\zeta_m)$
+    であるからアーベル拡大である．
+    $\sigma \mapsto s$とする写像は単射である．実際核を考えれば
+    $\sigma(\zeta_m)=\zeta_m^1\Rightarrow \sigma=\mathrm{id}_F$である．
+    この写像が求める準同型である．
 \end{proof}
 
 \end{document}
