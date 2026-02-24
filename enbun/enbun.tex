@@ -207,7 +207,7 @@ $\mathbb{Q}(\zeta_7)$を考える．
 $\zeta_7$の$\mathbb{Q}$上の最小多項式は
 $X^6+X^5+X^4+X^3+X^2+X+1$であるから
 $\mathbb{Q}(\zeta_7)/\mathbb{Q}$
-は$6$次アーベル拡大である．
+は$6$次ガロア拡大である．
 ガロアの基本定理により中間体$\mathbb{Q}\subset
 K \subset \mathbb{Q}(\zeta_7)$で
 $K/\mathbb{Q}$が$3$次巡回拡大となるものが存在する．
@@ -238,10 +238,21 @@ $\left< \sigma_6 \right>=\{\mathrm{id},\sigma_6\}\\
 
 これによって$\left< \sigma_6 \right>$
 で固定される体が求める中間体であることがわかる．
-$\displaystyle \zeta_7+\zeta_7^6=2\mathrm{cos}(\frac{2\pi}{7})$は$\sigma_6$で不変であるから，これを
+$\displaystyle
+\zeta_7+\zeta_7^6=2\mathrm{cos}\frac{2\pi}{7},\,
+\zeta_7^2+\zeta_7^5=2\mathrm{cos}\frac{4\pi}{7},\,
+\zeta_7^3+\zeta_7^4=2\mathrm{cos}\frac{6\pi}{7}
+$は$\sigma_6$で不変であるから，これらを
 追加した体$\displaystyle\mathbb{Q}(2\mathrm{cos}\frac{2\pi}{7})$
-が求めるものである．
-$\displaystyle 2\mathrm{cos}(\frac{2\pi}{7})$
+などが求めるものである．ガロアの基本定理により
+中間体は一つであるから
+\[
+    \mathbb{Q}(2\mathrm{cos}\frac{2\pi}{7})=
+    \mathbb{Q}(2\mathrm{cos}\frac{4\pi}{7})=
+    \mathbb{Q}(2\mathrm{cos}\frac{6\pi}{7})
+\]
+である．
+$\displaystyle 2\mathrm{cos}\frac{2\pi}{7}$
 の$\mathbb{Q}$上の最小多項式も求めてみる．
 $x=\zeta_7+\zeta_7^{-1}$とおく．
 \[
@@ -256,8 +267,20 @@ x^3-3x=\zeta_7^3+\zeta_7^{-3}$を用いれば
 \[
 x^3+x^2-2x-1
 \]
-が求める最小多項式である．
-
+が求める最小多項式である．この最小多項式の
+方程式に$\sigma_3$を作用させることにより
+\[
+x^3+x^2-2x-1=(x-2\mathrm{cos}\frac{2\pi}{7})
+(x-2\mathrm{cos}\frac{4\pi}{7})
+(x-2\mathrm{cos}\frac{6\pi}{7})
+\]
+がわかる．
+\begin{theorem}
+    $(\mathbb{Z}/m\mathbb{Z})^\times$
+    が巡回群であることと
+    $m=1,2,4,p^k,2p^k,\,(k\in\mathbb{N},p\colon \text{奇素数})$
+    は同値である．多分．
+\end{theorem}
 
 % 参考文献
 \begin{thebibliography}{99}
