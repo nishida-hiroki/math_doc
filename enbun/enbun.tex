@@ -185,9 +185,11 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     この条件を満たす$a$は$1$のみである．
     よって$\Phi_m(X)$は整数係数である．
 \end{proof}
-自分で書いててなんだが上の証明は冗長すぎる．
-モニックな整数係数でモニックな整数係数をわりきれてるんだから
-商もモニックな整数係数だろ．
+上の証明は冗長である．
+モニックな整数係数をモニックな整数係数で割りきれている
+のだから商もモニックな整数係数となる．
+そのように証明したほうが楽だが，ガウスの補題の練習のために
+こうした．
 \begin{theorem}
     体の標数を$0$とする．このとき$\Phi_m(X)$は$\mathbb{Q}$上既約である．
 \end{theorem}
@@ -211,7 +213,50 @@ K \subset \mathbb{Q}(\zeta_7)$で
 $K/\mathbb{Q}$が$3$次巡回拡大となるものが存在する．
 それを求めてみる．ガロア群の元としての同型写像は
 $\sigma_i(\zeta_7)=\zeta_7^i,\,(i=1,\ldots,6)$
-の$6$つである．
+の$6$つである．以下その計算表である．
+
+
+\subsection*{計算表}
+
+\begin{tabular}{c|cccccc}
+   & $\mathrm{id}$ & $\sigma_2$ & $\sigma_3$ & $\sigma_4$ & $\sigma_5$ & $\sigma_6$ \\ \hline
+  $\mathrm{id}$ & $\mathrm{id}$ & $\sigma_2$ & $\sigma_3$ & $\sigma_4$ & $\sigma_5$ & $\sigma_6$ \\
+  $\sigma_2$ &  & $\sigma_4$ & $\sigma_6$ & $\mathrm{id}$ & $\sigma_3$ & $\sigma_5$ \\
+  $\sigma_3$ &  &  & $\sigma_2$ & $\sigma_5$ & $\mathrm{id}$ & $\sigma_4$ \\
+  $\sigma_4$ &  &  &  & $\sigma_2$ & $\sigma_6$ & $\sigma_3$ \\
+  $\sigma_5$ &  &  &  &  & $\sigma_4$ & $\sigma_2$ \\
+  $\sigma_6$ &  &  &  &  &  & $\mathrm{id}$ \\
+\end{tabular}
+
+
+$\left< \sigma_6 \right>=\{\mathrm{id},\sigma_6\}\\
+\left< \sigma_2 \right>=
+\left< \sigma_4 \right>=\{\mathrm{id},\sigma_2,\sigma_4\}\\
+\left< \sigma_3 \right>=
+\left< \sigma_5 \right>=\{\mathrm{id},\sigma_2,\sigma_3,
+\sigma_4,\sigma_5,\sigma_6\}$
+
+これによって$\left< \sigma_6 \right>$
+で固定される体が求める中間体であることがわかる．
+$\displaystyle \zeta_7+\zeta_7^6=2\mathrm{cos}(\frac{2\pi}{7})$は$\sigma_6$で不変であるから，これを
+追加した体$\displaystyle\mathbb{Q}(2\mathrm{cos}\frac{2\pi}{7})$
+が求めるものである．
+$\displaystyle 2\mathrm{cos}(\frac{2\pi}{7})$
+の$\mathbb{Q}$上の最小多項式も求めてみる．
+$x=\zeta_7+\zeta_7^{-1}$とおく．
+\[
+\zeta_7^6+\zeta_7^5+\zeta_7^4+\zeta_7^3+\zeta_7^2+\zeta_7+1=0
+\]
+の両辺に$\zeta_7^{-3}$を掛けると
+\[
+\zeta_7^3+\zeta_7^2+\zeta_7^1+1+\zeta_7^{-1}+\zeta_7^{-2}+\zeta_7^{-3}=0
+\]
+になり，これに$x^2-2=\zeta_7^2+\zeta_7^{-2},
+x^3-3x=\zeta_7^3+\zeta_7^{-3}$を用いれば
+\[
+x^3+x^2-2x-1
+\]
+が求める最小多項式である．
 
 
 % 参考文献
