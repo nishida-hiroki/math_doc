@@ -12,7 +12,9 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[R]{\href{https://www.koito.co.jp}{\includegraphics[height=0.7cm]{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
+\fancyhead[R]{\href{https://teams.microsoft.com/l/chat/0/0?users=d-nishida@koito.co.jp}
+{\includegraphics[height=0.7cm]
+{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
@@ -185,7 +187,7 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     この条件を満たす$a$は$1$のみである．
     よって$\Phi_m(X)$は整数係数である．
 \end{proof}
-上の証明は冗長である．
+
 モニックな整数係数をモニックな整数係数で割りきれている
 のだから商もモニックな整数係数となる．
 そのように証明したほうが楽だが，ガウスの補題の練習のために
@@ -194,10 +196,15 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     体の標数を$0$とする．このとき$\Phi_m(X)$は$\mathbb{Q}$上既約である．
 \end{theorem}
 \begin{proof}
+    todo
     補題\uref{lemma:ensyu toubun takousiki keisuu seisuu}より
     円周等分多項式は整数係数である．
 \end{proof}
 
+\begin{theorem}[クロネッカー・ウェーバーの定理]
+    $K/\mathbb{Q}$が有限次アーベル拡大なら，$n>0$
+    であって$K\subset \mathbb{Q}(\zeta_n)$となるものが存在する．
+\end{theorem}
 
 
 \section{計算}
@@ -289,7 +296,7 @@ x^3+x^2-2x-1=(x-2\mathrm{cos}\frac{2\pi}{7})
 \end{theorem}
 任意の素数$p$に対して初項を$1$，公差を$p$とすればディリクレの算術級数
 定理\uref{dirichlet}より
-ある素数$q$が存在する．このとき$p\mid q-1$である．
+数列の中にある素数$q$が存在する．このとき$p\mid q-1$である．
 これを用いると任意の$p$に対して$\mathbb{Q}$の
 $p$次巡回拡大を$q-1$次のガロア拡大
 $\mathbb{Q}(\zeta_q)/\mathbb{Q}$
@@ -301,6 +308,7 @@ $\mathbb{Q}(\zeta_q)/\mathbb{Q}$
 \bibitem{ref1} 桂 利行, ``代数学III 体とガロア理論,'' 東京大学出版会, 2017.
 \bibitem{ref2} M.F.Atiyah I.G.Macdonald, 
 ``Introduction to Commutative Algebra,'' Addison-Wesley, 1969.
+\bibitem{ref3} 雪江 明彦, ``整数論2,'' 日本評論社, 2024.
 \end{thebibliography}
 
 \end{document}
