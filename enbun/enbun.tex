@@ -60,6 +60,43 @@
     $1$\textbf{の原始}$m$\textbf{乗根}という．
 \end{definition}
 
+\begin{theorem}
+    $G$を有限群，$n$をその位数，$p$を$n$の素因数とする．
+    $p^a$を$n$の$p$に関する最大の冪とする．
+    このとき次が成り立つ．
+    \begin{enumerate}
+        \item $G$の部分群$H$で$|H|=p^a$
+        となるものが存在する．
+        \textbf{シロー$p$部分群}という．
+        \item すべてのシロー$p$部分群は互いに共役である．
+        つまりある$g\in G$があって$H=gHg^{-1}$である．
+        \item シロー$p$部分群$H$をひとつ固定する．
+        部分群$K\subset G$で$K$の位数が
+        $p$べきならば，ある$g\in G$で
+        $K\subset gHg^{-1}$である．
+        \item シロー$p$部分群の数$s$は
+        $s=|G|/|N_G(H)|$である．
+        ただし$N_G(H)=\{ g\in G \mid gHg^{-1}=H \}$である．
+    \end{enumerate}
+\end{theorem}
+
+
+\begin{proof}
+    todo
+\end{proof}
+
+\begin{lemma}
+    $G$を位数$m$の群とする．
+    $d\mid m$となる任意の整数$d$に対して
+    位数が$d$の$G$の部分群が高々一つしか存在しないとき
+    $G$は巡回群である．
+\end{lemma}
+\begin{proof}
+    todo
+\end{proof}
+
+
+
 \begin{lemma}
     $\Omega$を代数的閉体とするとき次は同値である．
     \begin{enumerate}
@@ -199,6 +236,17 @@ $d$の小さい順に$\Phi_d(X)$を考えるといい．
     todo
     補題\uref{lemma:ensyu toubun takousiki keisuu seisuu}より
     円周等分多項式は整数係数である．
+    $\zeta_m$を$1$の原始$m$乗根として
+    $f(X)$を$\zeta_m$の最小多項式とする．
+    このとき$f(X)\mid \Phi_m(X)$である．
+    補題\uref{lemma:ensyu toubun takousiki keisuu seisuu}
+    と同様にガウスの補題を用いることにより，
+    $f(X)$がモニックな原始多項式であることがわかる．
+    $f(X)$と$\Phi_m(X)$は単元倍を除いて同一の多項式
+    であることを示す．
+    仮にそうでないとして，$\Phi_m(X)$の根であって
+    $f(X)$の根でないものが存在する．
+    これを$\zeta$とする．
 \end{proof}
 
 \begin{theorem}[クロネッカー・ウェーバーの定理]
@@ -309,6 +357,7 @@ $\mathbb{Q}(\zeta_q)/\mathbb{Q}$
 \bibitem{ref2} M.F.Atiyah I.G.Macdonald, 
 ``Introduction to Commutative Algebra,'' Addison-Wesley, 1969.
 \bibitem{ref3} 雪江 明彦, ``整数論2,'' 日本評論社, 2024.
+\bibitem{ref4} 雪江 明彦, ``代数学1,'' 日本評論社, 2019.
 \end{thebibliography}
 
 \end{document}
