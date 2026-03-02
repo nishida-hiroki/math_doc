@@ -56,21 +56,50 @@
         gx=g\}}$
         と書き，$x$の\textbf{安定化群}と呼ぶ．
     \end{enumerate}
-    \begin{proposition}
-        $G$が集合$X$に作用し，
-        $x,y\in X,g\in G$で
-        $y=gx$なら，
-        $Gy=Gx$かつ$G_y=gG_xg^{-1}$である．
-    \end{proposition}
-    簡単だから証明略．
-    \begin{corollary}
-        $G$が集合$X$に作用し，
-        $x,y\in X$で
-        $Gx\cap Gy\neq \emptyset$ならば
-        $Gx=Gy,\, G_x\cong G_y$である．
-    \end{corollary}
 \end{definition}
-
+\begin{proposition}
+    $G$が集合$X$に作用し，
+    $x,y\in X,g\in G$で
+    $y=gx$なら，
+    $Gy=Gx$かつ$G_y=gG_xg^{-1}$である．
+\end{proposition}
+    簡単だから証明略．
+\begin{corollary}
+    $G$が集合$X$に作用し，
+    $x,y\in X$で
+    $Gx\cap Gy\neq \emptyset$ならば
+    $Gx=Gy,\, G_x\cong G_y$である．
+\end{corollary}
+\begin{corollary}
+    群$G$が集合$X$に作用するとき，
+    $x,y\in X$で$x\sim y \Leftrightarrow Gx=Gy$
+    と定義する．
+    すると$\sim$は$X$上の同値関係となる．
+    この同値関係の剰余類は
+    $X$上の軌道と$1$対$1$に対応する．
+\end{corollary}
+これも簡単
+\begin{proposition}
+    $G$が集合$X$に作用するとする．$x\in X$であるとき，
+    集合$Gx$と$G/G_x$は，対応
+    $G/G_x\ni gG_x\mapsto gx\in Gx$
+    により$1$対$1$に対応する．
+    よって$|Gx|=(G\colon G_x)$である．
+    有限群なら$|Gx|=|G|/|G_x|$である．
+\end{proposition}
+\begin{proof}
+    まずwell-definedであることを示す．
+    $g,g'\in G$に対して
+    $gG_x=g'G_x$ならば
+    
+    $x\in X$をひとつ固定する．
+    単射性を示す．
+    $gx=g'x$ならば
+    $g'^{-1}gx=x$つまり
+    $g'^{-1}g\in G_x$である．
+    よって$gG_x=g'G_x$であり単射である．
+    全射性は明らか．
+\end{proof}
 % 参考文献
 \begin{thebibliography}{99}
 \bibitem{ref1} 雪江 明彦, ``代数学１,'' 日本評論社, 2019.
