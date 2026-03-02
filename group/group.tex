@@ -1,0 +1,72 @@
+\documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
+
+% パッケージ
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[dvipdfmx,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{color}
+\definecolor{TiffanyBlue}{RGB}{10, 186, 181}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\href{https://www.koito.co.jp}{\includegraphics[height=1cm]
+{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% リンクをティファニーブルー+下線にするコマンド
+\newcommand{\uref}[1]{\hyperref[#1]{\textcolor{TiffanyBlue}{\underline{\ref*{#1}}}}}
+
+% 定理環境
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+
+% タイトル
+\title{タイトル}
+\author{所属と名前}
+\date{\today}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\thispagestyle{fancy}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\begin{abstract}
+群論のメモ．
+\end{abstract}
+
+\section{群の作用}
+\begin{definition}
+    群$G$が集合$X$に作用するとする．
+    \begin{enumerate}
+        \item $x\in X$のとき
+        $\bm{Gx=\{gx\mid g\in G\}}$を
+        $x$の$G$による\textbf{軌道}と呼ぶ．
+        \item $x\in X$があり，
+        $Gx=X$となるとき，この作用は
+        \textbf{推移的}であるという．
+        \item $x\in X$のとき
+        $\bm{G_x=\{ g\in G \mid 
+        gx=g\}}$
+        と書き，$x$の\textbf{安定化群}と呼ぶ．
+    \end{enumerate}
+\end{definition}
+
+% 参考文献
+\begin{thebibliography}{99}
+\bibitem{ref1} 雪江 明彦, ``代数学１,'' 日本評論社, 2019.
+\end{thebibliography}
+
+\end{document}
