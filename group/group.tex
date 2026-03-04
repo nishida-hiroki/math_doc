@@ -28,6 +28,7 @@
 \newtheorem{example}[theorem]{例}
 \newtheorem{remark}[theorem]{注意}
 
+
 % タイトル
 \title{タイトル}
 \author{所属と名前}
@@ -53,7 +54,7 @@
         $X$は$G$の\textbf{等質空間}であるという．
         \item $x\in X$のとき
         $\bm{G_x=\{ g\in G \mid 
-        gx=g\}}$
+        gx=x\}}$
         と書き，$x$の\textbf{安定化群}と呼ぶ．
     \end{enumerate}
 \end{definition}
@@ -90,8 +91,12 @@
 \begin{proof}
     まずwell-definedであることを示す．
     $g,g'\in G$に対して
-    $gG_x=g'G_x$ならば
-    
+    $gG_x=g'G_x$ならば，
+    ある$h\in G_x$が存在して，
+    $g=g'h$となる．
+    このとき
+    $gx=g'hx=g'x$よりwell-defined
+    である．
     $x\in X$をひとつ固定する．
     単射性を示す．
     $gx=g'x$ならば
@@ -121,7 +126,9 @@
     といい，$C(x)$とかく．
 \end{definition}
 
-\begin{theorem}
+
+
+\begin{theorem}\label{ruitousiki}
     $G$を有限群とする．
     \begin{enumerate}
         \item $x\in G$なら，$|C(x)|=
@@ -134,6 +141,58 @@
     \end{enumerate}
 \end{theorem}
 
+\begin{proof}
+    (1)
+    $g\in G,x\in G$に対して
+    $g\circ x=gxg^{-1}$とすれば作用である．
+    この軌道は$C(x)$であり，安定化群は
+    $Z_G(x)$である．
+    $x$を固定する．
+    $\psi\colon G\rightarrow C(x),\,g\mapsto g\circ x$
+    を考えると軌道であるから明らかに全射である．    
+    写像
+    $$\bar{\psi}\colon G/Z_G(x)\rightarrow
+    C(x),\,aZ_G(x)\mapsto \psi(a)$$
+    を考える．
+    well-defined性を示す．
+    $aZ_G(x)=bZ_G(x)$のときある$h\in Z_G(x)$
+    が存在して$a=bh$となる．このとき安定化群であることに注意
+    して
+    $\psi(a)=\psi(bh)=(bh)\circ x=b\circ(h\circ x)=b\circ
+    x=\psi(b)\Leftrightarrow
+    \bar{\psi}(aZ_G(x))=\bar{\psi}(bZ_G(x))$
+    となる．よってwell-definedである．
+    $\psi$が全射だったので
+    $\bar{\psi}$も全射である．
+    単射性を示す．
+    $a,b\in G$に対して
+    $\bar{\psi}(aZ_G(x))=\bar{\psi}(bZ_G(x))$
+    が成り立つとする．このとき
+    $\psi(a)=\psi(b)\Rightarrow a\circ x=b\circ
+    x\Rightarrow b^{-1}a\circ x=x\Rightarrow 
+    b^{-1}a\in Z_G(x)
+    \Rightarrow aZ_G(x)=
+    bZ_G(x)$が成り立つ．
+    よって単射である．
+    $\bar{\psi}$は全単射となり，
+    両辺の個数を数えて(1)が示せた．\\
+    (2)共役類は同値関係であるから明らか．
+\end{proof}
+
+
+類等式からつぎのことがわかる．
+\begin{proposition}
+    類等式の右辺の数字は次の性質をもつ．
+    \begin{enumerate}
+        \item 必ず$1$が$1$は出現する．
+        \item すべて$|G|$の約数である．
+        \item $1$は$|G|$の約数個出現する．
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    (1)$Z_G(e)=G$より$1$がすくなくともひとつある．\\
+    (2),(3)定理\uref{ruitousiki}を考えれば明らか．
+\end{proof}
 % 参考文献
 \begin{thebibliography}{99}
 \bibitem{ref1} 雪江 明彦, ``代数学１,'' 日本評論社, 2019.
