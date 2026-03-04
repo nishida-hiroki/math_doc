@@ -16,9 +16,7 @@ jobs:
       - name: Compile LaTeX
         run: |
           find . -name "*.tex" | while read f; do
-            dir=$(dirname "$f")
-            file=$(basename "$f")
-            latexmk -pdf -interaction=nonstopmode -cd "$f"
+            latexmk -pdfdvi -latex=uplatex -e '$dvipdf = "dvipdfmx %O -o %D %S"' -interaction=nonstopmode -cd "$f"
           done
 
       - name: Create or update release
