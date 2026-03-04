@@ -11,6 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: "**/*.tex"
+          glob: true
+          work_in_root_file_dir: true
+
       - name: Create or update release
         uses: softprops/action-gh-release@v1
         with:
