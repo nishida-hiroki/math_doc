@@ -6,3 +6,7 @@
 *.pdf
 *.toc
 !pdf/*.pdf
+
+# Book database tool
+books/__pycache__/
+books/*.pyc
