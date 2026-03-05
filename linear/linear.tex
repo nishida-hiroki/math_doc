@@ -1,0 +1,52 @@
+\documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
+
+% パッケージ
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[dvipdfmx,hidelinks]{hyperref}
+\usepackage{pxjahyper}
+\usepackage{color}
+\definecolor{TiffanyBlue}{RGB}{10, 186, 181}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\href{https://www.koito.co.jp}{\includegraphics[height=1cm]
+{../figures/IMG_3840(1).jpeg}}} % ロゴ画像のパスを変更してください
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% リンクをティファニーブルー+下線にするコマンド
+\newcommand{\uref}[1]{\hyperref[#1]{\textcolor{TiffanyBlue}{\underline{\ref*{#1}}}}}
+
+% 定理環境
+\newtheorem{theorem}{定理}[section]
+\newtheorem{definition}[theorem]{定義}
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem{corollary}[theorem]{系}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注意}
+
+
+% タイトル
+\title{タイトル}
+\author{所属と名前}
+\date{\today}
+
+\begin{document}
+\begin{definition}
+    体$F$（$F$は主に$\mathbb{R}$か$\mathbb{C}$）
+    上のベクトル空間$V$が\textbf{計量ベクトル空間}であるとは
+    写像$V\times V\rightarrow F,\,(a,b)\mapsto a\cdot b$
+    が存在して
+    次の四つの公理を満たすことである．
+    \begin{enumerate}
+        \item $(a_1+a_2)\cdot b=a_1\cdot b+a_2\cdot b$
+        \item $(ca)\cdot b=c(a\cdot b)$ただし$c\in F$
+        \item $a\cdot b=\overline{b\cdot a}$（複素共役）
+        \item $a\cdot a \geq 0$
+    \end{enumerate}
+\end{definition}
+公理３より$a\cdot a=\overline{a\cdot a}$であることからこれは実数である．
+\end{document}
