@@ -60,6 +60,8 @@
     $1$\textbf{の原始}$m$\textbf{乗根}という．
 \end{definition}
 
+
+\begin{comment}
 \begin{theorem}
     $G$を有限群，$n$をその位数，$p$を$n$の素因数とする．
     $p^a$を$n$の$p$に関する最大の冪とする．
@@ -84,7 +86,7 @@
 \begin{proof}
     todo
 \end{proof}
-
+\end{comment}
 
 
 \begin{lemma}
@@ -102,11 +104,14 @@
     部分群が正規部分群であることがわかる．
     相異なる素数$p,q$に対して
     位数が$p,q$である部分群$H_p,H_q$が存在すると仮定する．
-    このとき可換子$[x,y]=xyx^{-1}y^{-1}$を用いて，集合
+    このとき交換子$[x,y]=xyx^{-1}y^{-1}$を用いて，集合
     $H\coloneqq \{ [x,y] \mid x\in H_p,y\in H_q \}$とおく．
     任意の部分群が正規部分群であることから，
+    $xyx^{-1}\in xH_qx^{-1}=H_q$などにより
     $H\subset H_p$かつ$H\subset H_q$である．
-    つまり$H\subset H_p\cap H_q=\{ e\}$であり，
+    部分群同士の共通部分はそのまた部分群になるが，
+    $p,q$は互いに素であることにより
+    $H\subset H_p\cap H_q=\{ e\}$であり，
     $H=\{ e\}$である．
     このことから$H_p$と$H_q$の任意の元は可換である．
     $m$の素因数分解
