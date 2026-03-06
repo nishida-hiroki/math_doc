@@ -6,6 +6,7 @@
 \usepackage{url}
 \usepackage[dvipdfmx,hidelinks]{hyperref}
 \usepackage{pxjahyper}
+\usepackage{verbatim}
 \usepackage{color}
 \definecolor{TiffanyBlue}{RGB}{10, 186, 181}
 \usepackage{fancyhdr}
@@ -80,7 +81,7 @@
     $X$上の軌道と$1$対$1$に対応する．
 \end{corollary}
 これも簡単
-\begin{proposition}
+\begin{proposition}\label{1.5}
     $G$が集合$X$に作用するとする．$x\in X$であるとき，
     集合$Gx$と$G/G_x$は，対応
     $G/G_x\ni gG_x\mapsto gx\in Gx$
@@ -147,6 +148,8 @@
     $g\circ x=gxg^{-1}$とすれば作用である．
     この軌道は$C(x)$であり，安定化群は
     $Z_G(x)$である．
+    命題\uref{1.5}より成立．
+    \begin{comment}
     $x$を固定する．
     $\psi\colon G\rightarrow C(x),\,g\mapsto g\circ x$
     を考えると軌道であるから明らかに全射である．    
@@ -176,6 +179,7 @@
     よって単射である．
     $\bar{\psi}$は全単射となり，
     両辺の個数を数えて(1)が示せた．\\
+    \end{comment}
     (2)共役類は同値関係であるから明らか．
 \end{proof}
 
@@ -188,11 +192,44 @@
         \item すべて$|G|$の約数である．
         \item $1$は$|G|$の約数個出現する．
     \end{enumerate}
+    これらを\textbf{自明な考察}とよぶ．
 \end{proposition}
 \begin{proof}
     (1)$Z_G(e)=G$より$1$がすくなくともひとつある．\\
-    (2),(3)定理\uref{ruitousiki}を考えれば明らか．
+    (2)定理\uref{ruitousiki}を考えれば明らか．\\
+    (3)共役な元が自分自身しかないことと中心の元であることは同値．
 \end{proof}
+
+
+
+\section{計算}
+位数が素数$p$の群$G$に対して自明な考察を行えば各
+$x_i\in G$に対して$|C(x_i)|=1$または$|C(x_i)|=p$であるが，
+まず$|C(e)|=1$であることを考えれば，
+任意の$x\in G$に対して$|C(x_i)|=1$である．
+つまりアーベル群である．
+単項で生成される部分群にラグランジュの定理を
+使えば巡回群であることもわかる．
+\\
+また，位数が$p$冪の群$G$に対して自明な考察をする．
+$|C(e)|=1$であり$|C(x)|$が$p$の倍数か$1$である．
+これより$|C(x)|=1$となる$x$は$p$の倍数個ある．
+つまり自明でない中心が存在することがわかる．\\
+位数が$6$の群$G$に対して自明な考察をする．
+候補は
+\begin{enumerate}
+    \item $6=1+1+1+1+1+1$
+    \item $6=1+1+1+3$
+    \item $6=1+1+2+2$
+\end{enumerate}
+である．(1)が$\mathbb{Z}/6\mathbb{Z}$,(2)が$S_3$である．
+(3)については存在しない．理由について$|Z(G)|=2$であるから
+$|G/Z(G)|=3$である．これは巡回群であるから，生成元を$gZ(G),g\in G $
+とおいて考えると，
+任意の$x,y\in G$にたいしてある$i,j\in \mathbb{N}$が
+存在して$x=g^iz_1,y=g^jz_2$が成り立つ．ただし$z_1,z_2\in Z(G)$である．
+$xy=g^iz_1g^jz_2=g^ig^jz_1z_2=g^jg^iz_2z_1=g^jz_2g^iz_1=yx$となり
+可換群であるから$|Z(G)|=2$に矛盾する．
 % 参考文献
 \begin{thebibliography}{99}
 \bibitem{ref1} 雪江 明彦, ``代数学１,'' 日本評論社, 2019.

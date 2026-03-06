@@ -332,5 +332,35 @@
     "read_date": "",
     "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784320017917.jpg",
     "created_at": "2026-03-05T13:52:01"
+  },
+  {
+    "id": 29,
+    "title": "線形代数学 : 初歩からジョルダン標準形へ",
+    "author": "三宅, 敏恒, 1944-",
+    "isbn": "9784563003814",
+    "tags": [],
+    "read_date": "",
+    "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784563003814.jpg",
+    "created_at": "2026-03-06T09:00:09"
+  },
+  {
+    "id": 30,
+    "title": "多様体入門",
+    "author": "坪井, 俊, 1953-",
+    "isbn": "9784130629546",
+    "tags": [],
+    "read_date": "",
+    "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784130629546.jpg",
+    "created_at": "2026-03-06T09:00:20"
+  },
+  {
+    "id": 31,
+    "title": "解析的整数論への誘い",
+    "author": "雪江, 明彦",
+    "isbn": "9784535787384",
+    "tags": [],
+    "read_date": "",
+    "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784535787384.jpg",
+    "created_at": "2026-03-06T09:00:44"
   }
 ]
