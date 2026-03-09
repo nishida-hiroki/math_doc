@@ -1,7 +1,7 @@
 \documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
 
 % パッケージ
-\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage[dvipdfmx,hidelinks]{hyperref}
@@ -35,6 +35,16 @@
 \date{\today}
 
 \begin{document}
+\begin{abstract}
+    これは勉強メモです．
+    AI曰く，ロボティクス・自動運転・ドローンの回転や姿勢の制御をするためには
+    リー群やリー環の知識が必要らしい．なのでリー群やリー環を勉強しよう．
+    回転を行列の掛け算で表す．
+    $3$次元の回転が$SO(3)$で回転と平行移動が$SE(3)$らしい．
+    pidやカルマンフィルタは足し算ができないといけないらしい．
+    リー群では足し算ができないのでリー環にしてから足し算をしてもどすらしい．
+    他にもクォータニオンによる回転などを理解するひつようがあるらしい．
+\end{abstract}
 \begin{definition}
     体$F$（$F$は主に$\mathbb{R}$か$\mathbb{C}$）
     上のベクトル空間$V$が\textbf{計量ベクトル空間}であるとは
@@ -48,5 +58,43 @@
         \item $a\cdot a \geq 0$
     \end{enumerate}
 \end{definition}
-公理３より$a\cdot a=\overline{a\cdot a}$であることからこれは実数である．
+公理３より$a\cdot a=\overline{a\cdot a}$であることから
+公理４が実数であること
+が保証されている．
+\\
+コンパクトってのは，だいたい有界閉の一般化みたいなやつ．
+位相空間の部分集合がコンパクトって言ったら，
+部分集合の任意の開被覆に対してその中の開集合を有限個とって
+部分集合を被覆できるってこと．
+\begin{definition}
+    $n\times n$行列$A$が
+    $\prescript{t}{}{A}A=I$
+    を満たすとき$A$を直交行列という．\\
+    $n$次直交行列全体の群を
+    \textbf{$n$次直交群}といい，
+    $O(n)$で表す．
+\end{definition}
+(todo)$\mathrm{det}A=\mathrm{det}\prescript{t}{}{A}$
+であることから$\mathrm{det}A=1,-1$である．
+また，$O(n)$は$\mathbb{R}^{n^2}$上コンパクト集合である．
+（証明todo）
+
+\begin{definition}
+    $O(n)$の部分群$SO(n)\coloneqq \{A\in O(n)\mid |A|=1\}$
+    を\textbf{$n$次特殊直交群}という．
+\end{definition}
+
+$O(n)\ni A\mapsto |A|\in \{1,-1\}$
+が準同型写像であることから$SO(n)$が$O(n)$の
+正規部分群であることがわかる．直和分解
+$O(n)=SO(n)\oplus B\cdot SO(n)\,(|B|=-1)$と表せられる．
+
+
+
+%参考文献
+\begin{thebibliography}{9}
+    \bibitem{ref1} 三宅 敏恒, ``線形代数学,'' 培風館, 2017.
+    \bibitem{ref2} 松木 敏彦, ``リー群入門,'' 日本評論社, 2018.
+\end{thebibliography}
+
 \end{document}
