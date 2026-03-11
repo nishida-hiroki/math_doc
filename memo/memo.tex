@@ -308,10 +308,10 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 \end{remark}
 
 \begin{definition}[共分散行列]
-    $\bm{X}=(X_1,\ldots,X_n)^\top$を$\mathbb{R}^n$値確率変数とし，
+    $\bm{X}=\prescript{t}{}{}(X_1,\ldots,X_n)$を$\mathbb{R}^n$値確率変数とし，
     $\bm{\mu}=E[\bm{X}]\in\mathbb{R}^n$をその期待値とする．
     \textbf{共分散行列}（分散共分散行列）$\Sigma\in M_n(\mathbb{R})$を
-    $$\Sigma=E\bigl[(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})^\top\bigr]$$
+    $$\Sigma=E\bigl[(\bm{X}-\bm{\mu})\,\prescript{t}{}{}(\bm{X}-\bm{\mu})\bigr]$$
     で定義する．成分で書くと$(i,j)$成分は
     $$\Sigma_{ij}=\mathrm{Cov}(X_i,X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]$$
     であり，特に対角成分$\Sigma_{ii}=\mathrm{Var}(X_i)$は各成分の分散である．
