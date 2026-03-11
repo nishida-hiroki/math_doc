@@ -1,7 +1,7 @@
 \documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
 
 % パッケージ
-\usepackage{amsmath,amssymb,amsthm}
+\usepackage{amsmath,amssymb,amsthm,bm}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{url}
@@ -143,5 +143,98 @@ Roman,\\
 
 
 \section*{位相と収束}
+
+$(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可測関数の列とする．
+
+\begin{definition}[位相空間での収束]
+    位相空間$(X,\mathcal{O})$において，点列$\{x_n\}_{n=1}^\infty\subset X$が
+    $x\in X$に\textbf{収束}するとは，
+    $x$の任意の開近傍$U$（$x\in U\in\mathcal{O}$）に対して，
+    ある$N\in\mathbb{N}$が存在して
+    $$n\geq N\Rightarrow x_n\in U$$
+    が成り立つことをいう．このとき$x_n\to x$と書く．
+\end{definition}
+
+\begin{remark}
+    Hausdorff空間（$T_2$空間）では極限は一意である．
+    一般の位相空間では極限が一意でないことがある．
+    また，位相空間では点列収束だけでは位相を特徴づけられないことがあり，
+    その場合はネット（有向集合で添え字付けられた点族）や
+    フィルターによる収束を用いる．
+\end{remark}
+
+\begin{definition}[ノルム位相]
+    ノルム空間$(V,\|\cdot\|)$において，
+    開球$B(x,r)=\{y\in V\mid \|y-x\|<r\}$を基底とする位相を
+    $V$の\textbf{ノルム位相}という．
+\end{definition}
+
+\begin{definition}[一様ノルム位相]
+    集合$X$上の有界関数全体$B(X)$に一様ノルム
+    $\|f\|_\infty=\sup_{x\in X}|f(x)|$
+    を入れたとき，このノルムが定めるノルム位相を
+    $B(X)$の\textbf{一様ノルム位相}（一様収束位相）という．
+\end{definition}
+
+\begin{definition}[$L^p$位相 ($1\leq p\leq\infty$)]
+    測度空間$(X,\mathcal{M},\mu)$上の$L^p$空間に
+    $L^p$ノルム$\|\cdot\|_{L^p}$が定めるノルム位相を
+    $L^p(X,\mu)$の\textbf{$L^p$位相}という．
+\end{definition}
+
+\begin{definition}[積位相]
+    位相空間の族$\{(X_\lambda,\mathcal{O}_\lambda)\}_{\lambda\in\Lambda}$に対し，
+    直積集合$\prod_{\lambda\in\Lambda}X_\lambda$上の位相で，
+    各射影$\pi_\lambda\colon\prod X_\lambda\to X_\lambda$が連続となる
+    最も粗い位相を\textbf{積位相}という．
+    開基は有限個の$\lambda$を除いて$X_\lambda$となる集合の族
+    $$\left\{\prod_{\lambda\in\Lambda}U_\lambda\ \middle|\
+    U_\lambda\in\mathcal{O}_\lambda,\,
+    U_\lambda=X_\lambda \text{ (有限個を除く)}\right\}$$
+    で与えられる．
+\end{definition}
+
+\begin{definition}[各点収束]
+    任意の$x\in X$に対して
+    $$\lim_{n\to\infty}f_n(x)=f(x)$$
+    が成り立つとき，$f_n$は$f$に\textbf{各点収束}するという．
+\end{definition}
+
+\begin{definition}[一様収束]
+    $$\lim_{n\to\infty}\sup_{x\in X}|f_n(x)-f(x)|=0$$
+    が成り立つとき，$f_n$は$f$に\textbf{一様収束}するという．
+\end{definition}
+
+\begin{definition}[$L^\infty$収束]
+    $f_n,f\in L^\infty(X,\mu)$とする．
+    $$\lim_{n\to\infty}\|f_n-f\|_{L^\infty}=0,
+    \quad \|g\|_{L^\infty}=\mathrm{ess\,sup}_{x\in X}|g(x)|$$
+    が成り立つとき，$f_n$は$f$に$\bm{L^\infty}$\textbf{収束}するという．
+    ここで本質的上限は
+    $$\mathrm{ess\,sup}_{x\in X}|g(x)|
+    =\inf\{M\geq 0\mid \mu(\{x\mid |g(x)|>M\})=0\}$$
+    である．
+\end{definition}
+
+\begin{definition}[$L^p$収束 ($1\leq p<\infty$)]
+    $f_n,f\in L^p(X,\mu)$とする．
+    $$\lim_{n\to\infty}\|f_n-f\|_{L^p}=0,
+    \quad \|g\|_{L^p}=\left(\int_X|g|^p\,d\mu\right)^{1/p}$$
+    が成り立つとき，$f_n$は$f$に$\bm{L^p}$\textbf{収束}するという．
+\end{definition}
+
+\begin{definition}[概収束 (a.e.収束)]
+    $\mu(\{x\in X\mid f_n(x)\not\to f(x)\})=0$
+    が成り立つとき，すなわち「ほとんどすべての$x\in X$で
+    $\lim_{n\to\infty}f_n(x)=f(x)$」が成り立つとき，
+    $f_n$は$f$に\textbf{概収束}（\textbf{a.e.収束}）するという．
+    記号で$f_n\to f\ \text{a.e.}$と書く．
+\end{definition}
+
+\begin{definition}[測度収束]
+    任意の$\varepsilon>0$に対して
+    $$\lim_{n\to\infty}\mu(\{x\in X\mid |f_n(x)-f(x)|>\varepsilon\})=0$$
+    が成り立つとき，$f_n$は$f$に\textbf{測度収束}するという．
+\end{definition}
 
 \end{document}
