@@ -362,5 +362,15 @@
     "read_date": "",
     "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784535787384.jpg",
     "created_at": "2026-03-06T09:00:44"
+  },
+  {
+    "id": 32,
+    "title": "リー群入門",
+    "author": "松木, 敏彦, 1954-",
+    "isbn": "9784535601420",
+    "tags": [],
+    "read_date": "",
+    "cover_url": "https://ndlsearch.ndl.go.jp/thumbnail/9784535601420.jpg",
+    "created_at": "2026-03-09T15:48:17"
   }
 ]
