@@ -70,6 +70,78 @@ Roman,\\
 
 
 
-半直積
+\section*{半直積}
+
+\begin{definition}[内部半直積]
+    群$G$の部分群$N,H$が次を満たすとき，
+    $G$は$N$と$H$の\textbf{（内部）半直積}であるといい，
+    $G=N\rtimes H$と書く．
+    \begin{enumerate}
+        \item $N\trianglelefteq G$（$N$は$G$の正規部分群）
+        \item $G=NH$
+        \item $N\cap H=\{e\}$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[外部半直積]
+    群$N,H$と群準同型$\phi\colon H\to\mathrm{Aut}(N)$が与えられたとき，
+    集合$N\times H$に積を
+    $$(n_1,h_1)(n_2,h_2)=(n_1\,\phi(h_1)(n_2),\,h_1h_2)$$
+    で定めると群になる．
+    この群を$N,H$の$\phi$による\textbf{（外部）半直積}といい，
+    $N\rtimes_\phi H$と書く．
+\end{definition}
+
+\begin{remark}
+    内部半直積と外部半直積は次の意味で一致する．
+    $G=N\rtimes H$（内部）のとき，
+    $\phi\colon H\to\mathrm{Aut}(N)$を
+    $\phi(h)(n)=hnh^{-1}$で定めると
+    $G\cong N\rtimes_\phi H$（外部）となる．
+    逆に外部半直積$N\rtimes_\phi H$において，
+    $\bar{N}=\{(n,e)\mid n\in N\}$，
+    $\bar{H}=\{(e,h)\mid h\in H\}$
+    とおけば$N\rtimes_\phi H$は
+    $\bar{N}$と$\bar{H}$の内部半直積である．
+\end{remark}
+
+\section*{群拡大}
+
+\begin{definition}[群拡大]
+    群$N,G,Q$と群準同型$i\colon N\to G$，$\pi\colon G\to Q$が
+    \begin{equation*}
+        1\longrightarrow N\xrightarrow{\;i\;} G\xrightarrow{\;\pi\;} Q\longrightarrow 1
+    \end{equation*}
+    という完全列をなすとき，$G$を$N$による$Q$の\textbf{群拡大}という．
+    すなわち$i$は単射，$\pi$は全射，$\mathrm{Im}(i)=\ker(\pi)$が成り立つ．
+    $N$を\textbf{核}，$Q$を\textbf{商}と呼ぶ．
+\end{definition}
+
+\begin{definition}[分裂拡大]
+    群拡大
+    $1\to N\xrightarrow{i} G\xrightarrow{\pi} Q\to 1$
+    において，群準同型$s\colon Q\to G$で
+    $\pi\circ s=\mathrm{id}_Q$を満たすものが存在するとき，
+    この拡大は\textbf{分裂する}という．
+    $s$を\textbf{断面（section）}と呼ぶ．
+\end{definition}
+
+\begin{proposition}
+    群拡大$1\to N\xrightarrow{i} G\xrightarrow{\pi} Q\to 1$が
+    分裂するならば，$G\cong N\rtimes_\phi Q$（半直積）である．
+    ここで$\phi\colon Q\to\mathrm{Aut}(N)$は
+    $\phi(q)(n)=s(q)\,i(n)\,s(q)^{-1}$で定まる．
+\end{proposition}
+
+\begin{remark}
+    分裂しない群拡大の例として，$\mathbb{Z}/4\mathbb{Z}$は
+    $\mathbb{Z}/2\mathbb{Z}$による$\mathbb{Z}/2\mathbb{Z}$の拡大
+    $1\to\mathbb{Z}/2\mathbb{Z}\to\mathbb{Z}/4\mathbb{Z}\to\mathbb{Z}/2\mathbb{Z}\to 1$
+    を与えるが，断面が群準同型にならないため分裂しない．
+    一方$S_3\cong\mathbb{Z}/3\mathbb{Z}\rtimes\mathbb{Z}/2\mathbb{Z}$は分裂する拡大の例である．
+\end{remark}
+
+
+\section*{位相と収束}
 
 \end{document}
