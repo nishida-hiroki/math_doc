@@ -1,7 +1,7 @@
 \documentclass[dvipdfmx,a4paper,12pt]{jsarticle}
 
 % パッケージ
-\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{amsmath,amssymb,amsthm,bm,mathtools}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{url}
@@ -236,5 +236,118 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     $$\lim_{n\to\infty}\mu(\{x\in X\mid |f_n(x)-f(x)|>\varepsilon\})=0$$
     が成り立つとき，$f_n$は$f$に\textbf{測度収束}するという．
 \end{definition}
+
+
+\section*{距離関数}
+
+\begin{definition}[コサイン類似度・コサイン距離]
+    $\bm{x},\bm{y}\in\mathbb{R}^n\setminus\{\bm{0}\}$に対して，
+    \textbf{コサイン類似度}を
+    $$\cos(\bm{x},\bm{y})
+    =\frac{\bm{x}\cdot\bm{y}}{\|\bm{x}\|\,\|\bm{y}\|}
+    =\frac{\sum_{i=1}^n x_i y_i}
+    {\sqrt{\sum_{i=1}^n x_i^2}\,\sqrt{\sum_{i=1}^n y_i^2}}$$
+    で定義する．値域は$[-1,1]$であり，
+    $\bm{x}$と$\bm{y}$のなす角を$\theta$とすると
+    $\cos(\bm{x},\bm{y})=\cos\theta$に等しい．\\
+    \textbf{コサイン距離}を
+    $$d_{\cos}(\bm{x},\bm{y})=1-\cos(\bm{x},\bm{y})$$
+    で定義する．値域は$[0,2]$であり，
+    $\bm{x},\bm{y}$が同方向のとき$0$，逆方向のとき$2$となる．
+\end{definition}
+
+\begin{remark}
+    コサイン距離は距離の公理のうち，\textbf{非退化性}と\textbf{三角不等式}を満たさない．
+    \begin{enumerate}
+        \item \textbf{非退化性の破れ}：
+        距離の公理では$d(\bm{x},\bm{y})=0\Leftrightarrow\bm{x}=\bm{y}$を要求するが，
+        コサイン距離では
+        $$d_{\cos}(\bm{x},\bm{y})=0
+        \iff\cos(\bm{x},\bm{y})=1
+        \iff\bm{x}=\lambda\bm{y}\text{ (ある}\lambda>0\text{)}$$
+        となる．すなわち同方向のスカラー倍であればよく，
+        $\bm{x}\neq\bm{y}$であっても$d_{\cos}(\bm{x},\bm{y})=0$になりうる．
+        これはコサイン距離がベクトルの\textbf{向き}のみを比較し，
+        大きさを無視することによる．
+        \item \textbf{三角不等式の破れ}：
+        $\mathbb{R}^2$において
+        $\bm{x}=(1,0)$，
+        $\bm{y}=\tfrac{1}{\sqrt{2}}(1,1)$，
+        $\bm{z}=(0,1)$とおくと，
+        \begin{align*}
+            d_{\cos}(\bm{x},\bm{y})&=1-\tfrac{1}{\sqrt{2}}\approx 0.293,\\
+            d_{\cos}(\bm{y},\bm{z})&=1-\tfrac{1}{\sqrt{2}}\approx 0.293,\\
+            d_{\cos}(\bm{x},\bm{z})&=1-0=1
+        \end{align*}
+        であるから，
+        $d_{\cos}(\bm{x},\bm{z})=1>0.586\approx
+        d_{\cos}(\bm{x},\bm{y})+d_{\cos}(\bm{y},\bm{z})$
+        となり三角不等式が成り立たない．
+        これは$\bm{x},\bm{y},\bm{z}$の角度が等差的に並んでいるとき，
+        距離が線形でなく余弦を通じて定義されることが原因である．
+    \end{enumerate}
+    以上より$d_{\cos}$は厳密には距離関数ではなく\textbf{非類似度}である．
+    自然言語処理や情報検索においてベクトルの向きの類似性を測るために広く用いられる．
+\end{remark}
+
+\begin{definition}[正定値対称行列]
+    $A\in M_n(\mathbb{R})$が\textbf{対称行列}であるとは$\prescript{t}{}{}A=A$が成り立つことをいう．
+    対称行列$A$が\textbf{正定値}であるとは，すべての零でないベクトル$\bm{x}\in\mathbb{R}^n\setminus\{\bm{0}\}$に対して
+    $$\prescript{t}{}{}\bm{x}A\bm{x}>0$$
+    が成り立つことをいう．このような行列を\textbf{正定値対称行列}という．
+    等号も許す条件$\prescript{t}{}{}\bm{x}A\bm{x}\geq 0$（$\bm{x}\neq\bm{0}$）のとき\textbf{半正定値}という．
+\end{definition}
+
+\begin{remark}
+    正定値対称行列$A$は次の同値な条件をもつ：
+    \begin{enumerate}
+        \item すべての固有値が正である．
+        \item コレスキー分解$A=\prescript{t}{}{}B\,B$（$B$：正則行列）が存在する．
+        \item $A$は正則であり，$A^{-1}$も正定値対称行列である．
+    \end{enumerate}
+\end{remark}
+
+\begin{definition}[共分散行列]
+    $\bm{X}=(X_1,\ldots,X_n)^\top$を$\mathbb{R}^n$値確率変数とし，
+    $\bm{\mu}=E[\bm{X}]\in\mathbb{R}^n$をその期待値とする．
+    \textbf{共分散行列}（分散共分散行列）$\Sigma\in M_n(\mathbb{R})$を
+    $$\Sigma=E\bigl[(\bm{X}-\bm{\mu})(\bm{X}-\bm{\mu})^\top\bigr]$$
+    で定義する．成分で書くと$(i,j)$成分は
+    $$\Sigma_{ij}=\mathrm{Cov}(X_i,X_j)=E[(X_i-\mu_i)(X_j-\mu_j)]$$
+    であり，特に対角成分$\Sigma_{ii}=\mathrm{Var}(X_i)$は各成分の分散である．
+\end{definition}
+
+\begin{remark}
+    共分散行列は常に\textbf{半正定値対称行列}である．
+    すなわち$\prescript{t}{}{}\Sigma=\Sigma$かつ任意の$\bm{v}\in\mathbb{R}^n$に対して
+    $\prescript{t}{}{}\bm{v}\Sigma\bm{v}=\mathrm{Var}(\prescript{t}{}{}\bm{v}\bm{X})\geq 0$が成り立つ．
+    $\bm{X}$の成分の間に完全な線形従属関係がないとき（非退化のとき），$\Sigma$は正定値対称行列になる．
+\end{remark}
+
+\begin{definition}[マハラノビス距離]
+    $\bm{x},\bm{y}\in\mathbb{R}^n$と正定値対称行列$\Sigma\in M_n(\mathbb{R})$に対して，
+    \textbf{マハラノビス距離}を
+    $$d_M(\bm{x},\bm{y})=\sqrt{\prescript{t}{}{}(\bm{x}-\bm{y})\Sigma^{-1}(\bm{x}-\bm{y})}$$
+    で定義する．
+    特に確率分布$P$を考えるとき，$\Sigma$として$P$の共分散行列をとることが多い．
+    $\Sigma=I$（単位行列）のときユークリッド距離に一致する．
+\end{definition}
+
+\begin{remark}
+    マハラノビス距離はデータの\textbf{スケール}と\textbf{相関}を考慮した距離である．
+    各成分の分散が異なる場合や成分間に相関がある場合に，
+    ユークリッド距離より適切な距離を与える．
+    \begin{enumerate}
+        \item \textbf{スケール不変性}：
+        各変数を標準化した場合でも同じ値を与える．
+        すなわち$\bm{x}$の第$i$成分を$\sigma_i$倍しても距離は変わらない．
+        \item \textbf{相関の補正}：
+        $\Sigma^{-1}$によって変数間の相関を取り除いた空間でのユークリッド距離に相当する．
+        より正確には，$\Sigma=A\,\prescript{t}{}{}A$と分解するとき（Cholesky分解など），
+        $d_M(\bm{x},\bm{y})=\|A^{-1}(\bm{x}-\bm{y})\|$である．
+        \item \textbf{距離の公理}：
+        $\Sigma$が正定値対称行列ならば，$d_M$は距離の公理をすべて満たす．
+    \end{enumerate}
+\end{remark}
 
 \end{document}
