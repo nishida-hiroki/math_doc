@@ -52,7 +52,13 @@
 
 
 
+
+
+
 \begin{document}
+\begin{abstract}
+    いい加減なメモ
+\end{abstract}
 \begin{theorem}
     $[\mathbb{F}_2(\zeta_n):\mathbb{F}_2]=\mathrm{ord}_n(2)$
 \end{theorem}
@@ -352,5 +358,137 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 
 
 
-クォータニオン，回転行列，オイラー角
+
+\section*{クォータニオン・回転行列・オイラー角}
+
+\subsection*{クォータニオン}
+
+\begin{definition}[クォータニオン（四元数）]
+    虚数単位$i,j,k$が
+    $$i^2=j^2=k^2=ijk=-1$$
+    を満たすとき，
+    $$\mathbb{H}=\{w+xi+yj+zk\mid w,x,y,z\in\mathbb{R}\}$$
+    を\textbf{クォータニオン}（四元数）の集合という．
+    $w$を\textbf{実部（スカラー部）}，$xi+yj+zk$を\textbf{虚部（ベクトル部）}という．
+\end{definition}
+
+\begin{definition}[共役・ノルム]
+    $q=w+xi+yj+zk\in\mathbb{H}$に対して，
+    \textbf{共役クォータニオン}を
+    $$\bar{q}=w-xi-yj-zk$$
+    で定義し，\textbf{ノルム}を
+    $$\|q\|=\sqrt{q\bar{q}}=\sqrt{w^2+x^2+y^2+z^2}$$
+    で定義する．$\|q\|=1$のとき$q$を\textbf{単位クォータニオン}という．
+\end{definition}
+
+\begin{remark}
+    クォータニオンの積は結合的であるが一般に非可換である．
+    $i,j,k$の積は次の表に従う：
+    $$ij=k,\quad jk=i,\quad ki=j,\quad ji=-k,\quad kj=-i,\quad ik=-j.$$
+    単位クォータニオン全体$S^3=\{q\in\mathbb{H}\mid\|q\|=1\}$は積について群をなす．
+\end{remark}
+
+\begin{definition}[クォータニオンによる回転]
+    単位クォータニオン$q=\cos\dfrac{\theta}{2}+\sin\dfrac{\theta}{2}(n_x i+n_y j+n_z k)$
+    （ただし$(n_x,n_y,n_z)$は単位ベクトル）に対して，
+    $\mathbb{R}^3$のベクトル$\bm{v}=(v_x,v_y,v_z)$を
+    純クォータニオン$p=v_x i+v_y j+v_z k$と同一視すると，
+    単位ベクトル$\bm{n}=(n_x,n_y,n_z)$まわりの角度$\theta$の回転は
+    $$p'=qp\bar{q}$$
+    で与えられる．$p'$の虚部が回転後のベクトルに対応する．
+\end{definition}
+
+\begin{remark}
+    $q$と$-q$は同一の回転を表す．すなわち単位クォータニオンと回転の対応は
+    $2$対$1$であり，$\mathrm{Spin}(3)\cong S^3\to SO(3)$という
+    二重被覆の構造をもつ．
+\end{remark}
+
+\subsection*{回転行列}
+
+\begin{definition}[$SO(3)$（三次元回転群）]
+    \textbf{三次元回転群}を
+    $$SO(3)=\{R\in M_3(\mathbb{R})\mid R\,\prescript{t}{}{}R=I,\;\det R=1\}$$
+    で定義する．各$R\in SO(3)$を\textbf{回転行列}という．
+\end{definition}
+
+\begin{definition}[基本回転行列]
+    各座標軸まわりの角度$\theta$の回転行列を次で定義する：
+    \begin{align*}
+        R_x(\theta)
+        &=\begin{pmatrix}1&0&0\\0&\cos\theta&-\sin\theta\\0&\sin\theta&\cos\theta\end{pmatrix},\\[6pt]
+        R_y(\theta)
+        &=\begin{pmatrix}\cos\theta&0&\sin\theta\\0&1&0\\-\sin\theta&0&\cos\theta\end{pmatrix},\\[6pt]
+        R_z(\theta)
+        &=\begin{pmatrix}\cos\theta&-\sin\theta&0\\\sin\theta&\cos\theta&0\\0&0&1\end{pmatrix}.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}[クォータニオンから回転行列への変換]
+    単位クォータニオン$q=w+xi+yj+zk$（$w^2+x^2+y^2+z^2=1$）に対応する
+    回転行列は
+    $$R(q)=\begin{pmatrix}
+        1-2(y^2+z^2) & 2(xy-wz) & 2(xz+wy) \\
+        2(xy+wz) & 1-2(x^2+z^2) & 2(yz-wx) \\
+        2(xz-wy) & 2(yz+wx) & 1-2(x^2+y^2)
+    \end{pmatrix}$$
+    である．
+\end{proposition}
+
+\subsection*{オイラー角}
+
+\begin{definition}[オイラー角（ZYX 規約，航空機規約）]
+    $\psi$（ヨー），$\theta$（ピッチ），$\phi$（ロール）を
+    それぞれ$z$軸，$y$軸，$x$軸まわりの回転角とするとき，
+    ZYX 規約の回転行列を
+    $$R(\psi,\theta,\phi)=R_z(\psi)\,R_y(\theta)\,R_x(\phi)$$
+    で定義する．成分を展開すると
+    \begin{align*}
+        R=\begin{pmatrix}
+            c_\psi c_\theta
+            & c_\psi s_\theta s_\phi - s_\psi c_\phi
+            & c_\psi s_\theta c_\phi + s_\psi s_\phi \\
+            s_\psi c_\theta
+            & s_\psi s_\theta s_\phi + c_\psi c_\phi
+            & s_\psi s_\theta c_\phi - c_\psi s_\phi \\
+            -s_\theta
+            & c_\theta s_\phi
+            & c_\theta c_\phi
+        \end{pmatrix}
+    \end{align*}
+    となる．ここで$c_\alpha=\cos\alpha$，$s_\alpha=\sin\alpha$と略記した．
+\end{definition}
+
+\begin{proposition}[回転行列からオイラー角への変換]
+    $R=(r_{ij})$を ZYX 規約の回転行列とする（$\cos\theta\neq 0$，すなわち$\theta\neq\pm\pi/2$のとき）：
+    \begin{align*}
+        \psi &= \mathrm{atan2}(r_{21},\,r_{11}),\\
+        \theta &= \mathrm{atan2}(-r_{31},\,\sqrt{r_{32}^2+r_{33}^2}),\\
+        \phi &= \mathrm{atan2}(r_{32},\,r_{33}).
+    \end{align*}
+    $\cos\theta=0$のとき（ジンバルロック）は$\psi$と$\phi$が一意に定まらない．
+\end{proposition}
+
+\begin{remark}[ジンバルロック]
+    $\theta=\pm\pi/2$のとき$R_y(\theta)$が$x$軸と$z$軸を重ね合わせるため，
+    $\psi$と$\phi$の自由度が縮退して\textbf{ジンバルロック}が生じる．
+    この状況では回転の一自由度が失われ，オイラー角による表現が不安定になる．
+    クォータニオンによる表現ではジンバルロックが生じない．
+\end{remark}
+
+\begin{proposition}[オイラー角からクォータニオンへの変換]
+    ZYX 規約のオイラー角$(\psi,\theta,\phi)$に対応する単位クォータニオンは
+    \begin{align*}
+        w &= \cos\tfrac{\phi}{2}\cos\tfrac{\theta}{2}\cos\tfrac{\psi}{2}
+           +\sin\tfrac{\phi}{2}\sin\tfrac{\theta}{2}\sin\tfrac{\psi}{2},\\
+        x &= \sin\tfrac{\phi}{2}\cos\tfrac{\theta}{2}\cos\tfrac{\psi}{2}
+           -\cos\tfrac{\phi}{2}\sin\tfrac{\theta}{2}\sin\tfrac{\psi}{2},\\
+        y &= \cos\tfrac{\phi}{2}\sin\tfrac{\theta}{2}\cos\tfrac{\psi}{2}
+           +\sin\tfrac{\phi}{2}\cos\tfrac{\theta}{2}\sin\tfrac{\psi}{2},\\
+        z &= \cos\tfrac{\phi}{2}\cos\tfrac{\theta}{2}\sin\tfrac{\psi}{2}
+           -\sin\tfrac{\phi}{2}\sin\tfrac{\theta}{2}\cos\tfrac{\psi}{2}
+    \end{align*}
+    で与えられる．
+\end{proposition}
+
 \end{document}
