@@ -491,4 +491,34 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     で与えられる．
 \end{proposition}
 
+\section*{確率}
+
+\begin{definition}[確率空間・コルモゴロフの公理]
+    集合$\Omega$（\textbf{標本空間}），$\sigma$-加法族$\mathcal{F}\subset 2^\Omega$（\textbf{事象族}），
+    および写像$P\colon\mathcal{F}\to\mathbb{R}$（\textbf{確率測度}）の三つ組
+    $(\Omega,\mathcal{F},P)$を\textbf{確率空間}という．
+    $P$がコルモゴロフの公理を満たすとは，次の三条件が成り立つことをいう：
+    \begin{enumerate}
+        \item \textbf{非負性}：任意の$A\in\mathcal{F}$に対して$P(A)\geq 0$．
+        \item \textbf{全確率}：$P(\Omega)=1$．
+        \item \textbf{加算加法性}（$\sigma$-加法性）：
+        互いに排反な事象の列$A_1,A_2,\ldots\in\mathcal{F}$
+        （$i\neq j\Rightarrow A_i\cap A_j=\emptyset$）に対して
+        $$P\!\left(\bigcup_{n=1}^{\infty}A_n\right)=\sum_{n=1}^{\infty}P(A_n).$$
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    コルモゴロフの公理から直ちに次が導かれる：
+    \begin{enumerate}
+        \item $P(\emptyset)=0$．
+        \item \textbf{有限加法性}：$A\cap B=\emptyset$ならば$P(A\cup B)=P(A)+P(B)$．
+        \item \textbf{余事象}：$P(A^c)=1-P(A)$．
+        \item \textbf{単調性}：$A\subset B$ならば$P(A)\leq P(B)$．
+        \item \textbf{劣加法性}（ブールの不等式）：
+        $P\!\left(\bigcup_{n=1}^{\infty}A_n\right)\leq\sum_{n=1}^{\infty}P(A_n)$．
+    \end{enumerate}
+\end{remark}
+
+
 \end{document}
