@@ -521,4 +521,134 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 \end{remark}
 
 
+\section*{微分方程式}
+
+\subsection*{特異解と包絡線}
+
+\begin{definition}[特異解]
+    1階 ODE $F(x,y,y')=0$ の解で，
+    積分定数 $c$ を含む一般解の族 $\Phi(x,y,c)=0$ のいずれにも属さない解を
+    \textbf{特異解}という．
+\end{definition}
+
+\begin{definition}[包絡線]
+    1パラメータ曲線族 $\Phi(x,y,c)=0$ に対し，
+    族の各曲線に接する曲線を\textbf{包絡線}という．
+    包絡線は\textbf{$c$-判別式法}，すなわち連立方程式
+    \begin{equation*}
+        \Phi(x,y,c)=0,\quad \frac{\partial\Phi}{\partial c}(x,y,c)=0
+    \end{equation*}
+    から $c$ を消去することで求められる（得られた曲線には尖点軌跡などを含む場合があるため，
+    包絡線であるか否かは個別に確認が必要である）．
+\end{definition}
+
+\begin{proposition}[包絡線は特異解]\label{prop:envelope-singular}
+    $F(x,y,p)=0$（$p=y'$）の一般解の族 $\Phi(x,y,c)=0$ の包絡線は，
+    この ODE の特異解である．
+\end{proposition}
+
+\begin{proof}
+    包絡線上の点 $(x_0,y_0)$ に対してある $c_0$ が存在し，
+    \begin{equation*}
+        \Phi(x_0,y_0,c_0)=0,\quad
+        \frac{\partial\Phi}{\partial c}(x_0,y_0,c_0)=0.
+    \end{equation*}
+    $\Phi(x,y,c_0)=0$ は一般解の一員（解曲線）であるから，
+    この曲線上の $(x_0,y_0)$ での傾きを $p_0$ とおくと $F(x_0,y_0,p_0)=0$．
+    包絡線の定義より，包絡線は点 $(x_0,y_0)$ において $\Phi(x,y,c_0)=0$ と接する，
+    すなわち同じ傾き $p_0$ をもつ．
+    したがって $F(x_0,y_0,p_0)=0$ が包絡線上でも成り立ち，包絡線は ODE を満たす．
+    包絡線は任意定数 $c$ を含まず一般解の族に属さないから，特異解である．
+\end{proof}
+
+\subsection*{クレロー方程式}
+
+\begin{definition}[クレロー方程式]
+    $p=y'$ とおくとき，
+    \begin{equation*}
+        y = xp + f(p)
+    \end{equation*}
+    の形の1階 ODE を\textbf{クレロー方程式}という．
+\end{definition}
+
+\begin{proposition}[クレロー方程式の包絡線は特異解]
+    クレロー方程式 $y=xp+f(p)$ の一般解は直線族
+    \begin{equation*}
+        y = cx + f(c) \qquad (c\in\mathbb{R})
+    \end{equation*}
+    であり，この直線族の包絡線がクレロー方程式の特異解である．
+    包絡線のパラメータ表示は
+    \begin{equation*}
+        x = -f'(c),\quad y = f(c) - cf'(c)
+    \end{equation*}
+    で与えられる．
+\end{proposition}
+
+\begin{proof}
+    両辺を $x$ で微分すると
+    \begin{equation*}
+        p = p + \bigl(x + f'(p)\bigr)\frac{dp}{dx},
+    \end{equation*}
+    すなわち $\bigl(x+f'(p)\bigr)\,p'=0$．
+
+    \textbf{場合1}（$p'=0$）：$p=c$（定数）とおくと $y=cx+f(c)$．
+    これが積分定数 $c$ を含む一般解である．
+
+    \textbf{場合2}（$x+f'(p)=0$）：$x=-f'(p)$ を元の方程式に代入すると
+    $y=-pf'(p)+f(p)$．これは $p$ をパラメータとする特異解を与える．
+
+    次に一般解の族 $\Phi(x,y,c)=y-cx-f(c)=0$ の包絡線を $c$-判別式法で求める：
+    \begin{equation*}
+        \frac{\partial\Phi}{\partial c} = -x - f'(c) = 0
+        \implies x = -f'(c).
+    \end{equation*}
+    $\Phi=0$ に代入すると $y = cx + f(c) = -cf'(c) + f(c)$．
+    これは場合2の特異解と完全に一致する．
+    すなわち，クレロー方程式の特異解は一般解の包絡線であり，
+    命題\uref{prop:envelope-singular}によってこれが特異解であることが保証される．
+\end{proof}
+
+\begin{example}
+    $y = xp - p^2$（$f(p)=-p^2$）はクレロー方程式の例である．
+    一般解は $y = cx - c^2$（放物線の接線群），
+    特異解は $x = 2c$，$y = c^2$，すなわち $y = x^2/4$（放物線）であり，
+    これは各接線の包絡線（放物線それ自身）に一致する．
+\end{example}
+
+\subsection*{ラグランジュ方程式}
+
+\begin{definition}[ラグランジュ方程式]
+    $p=y'$ とおくとき，
+    \begin{equation*}
+        y = x\phi(p) + \psi(p)
+    \end{equation*}
+    の形の1階 ODE を\textbf{ラグランジュ方程式}という（$\phi(p)\not\equiv p$）．
+    $\phi(p)=p$ のときクレロー方程式に帰着する．
+\end{definition}
+
+\begin{proposition}[ラグランジュ方程式の包絡線は特異解]
+    ラグランジュ方程式 $y=x\phi(p)+\psi(p)$ の両辺を $x$ で微分すると
+    \begin{equation*}
+        p - \phi(p) = \bigl[x\phi'(p)+\psi'(p)\bigr]\frac{dp}{dx}.
+    \end{equation*}
+    $p-\phi(p)\neq 0$ の領域では $p$ を独立変数とみて
+    \begin{equation*}
+        \frac{dx}{dp} - \frac{\phi'(p)}{p-\phi(p)}\,x = \frac{\psi'(p)}{p-\phi(p)}
+    \end{equation*}
+    という $x(p)$ に関する1階線形 ODE が得られる．
+    その一般解 $x=X(p,c)$（積分定数 $c$ を含む）と
+    $y=X(p,c)\,\phi(p)+\psi(p)$ が，$p$ をパラメータとして，ラグランジュ方程式の一般解を与える．
+    一般解の族の包絡線（$c$-判別式法で求められる曲線）は，
+    命題\uref{prop:envelope-singular}によって，ラグランジュ方程式の特異解となる．
+\end{proposition}
+
+\begin{remark}
+    クレロー方程式とラグランジュ方程式に共通する本質的な構造は，
+    「一般解が1パラメータ曲線族をなし，その包絡線が特異解を与える」という点にある．
+    クレロー方程式では一般解が直線族となるため包絡線の計算が明示的に行えるが，
+    ラグランジュ方程式では一般解がより複雑な曲線族となり，
+    包絡線は $c$-判別式法を経て求める必要がある．
+    いずれの場合も，包絡線が特異解であることの保証は命題\uref{prop:envelope-singular}による．
+\end{remark}
+
 \end{document}
