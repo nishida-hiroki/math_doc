@@ -63,7 +63,6 @@
 $t$が実数全体を動くとき
 $x,y$平面上の曲線$y=tx+t^2$
 が通過する領域は
-
 \begin{align*}
     &\{ (x,y)\in \mathbb{R}^2
     \mid \exists t\in \mathbb{R}
@@ -74,6 +73,24 @@ $x,y$平面上の曲線$y=tx+t^2$
 \end{align*}
 である．実数解が存在するかどうかの判別式そのままである．
 
+$t$が非負実数全体を動くときの通過する領域は
+\begin{align*}
+    \{ (x,y)\in \mathbb{R}^2
+    \mid \exists t\in \mathbb{R}_{\geq 0}
+    \text{ s.t. }t^2+xt-y-0\}
+\end{align*}
+である．$x$を固定して$y$の範囲を見る．
+こうすることで境界がある関数$x\mapsto y$で
+表現できたりする．
+状況によって$x$と$y$は逆でもいい．
+\begin{align*}
+    t^2+xt-y=0\Leftrightarrow 
+    \left( t+\frac{x}{2}\right)^2-
+    \frac{x^2}{4}=y
+\end{align*}
+である．$t$と$y$のグラフを考えると
+軸が$\displaystyle-\frac{x}{2}$で
+そこで最小値$\displaystyle\frac{x^2}{4}$をとる．
 
 
 \begin{theorem}
