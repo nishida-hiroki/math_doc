@@ -668,4 +668,43 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     いずれの場合も，包絡線が特異解であることの保証は命題\uref{prop:envelope-singular}による．
 \end{remark}
 
+\section*{優収束定理}
+
+\begin{theorem}[優収束定理]
+    $(X,\mathcal{M},\mu)$ を測度空間とし，可測関数列 $f_n\colon X\to\mathbb{R}$ と
+    可測関数 $f\colon X\to\mathbb{R}$ が
+    $$f_n(x)\to f(x)\quad \text{a.e. }x\in X$$
+    をみたすとする．さらに，ある $g\in L^1(X,\mu)$ が存在して
+    $$|f_n(x)|\le g(x)\quad \text{a.e. }x\in X,\ \forall n\in\mathbb{N}$$
+    とする．このとき $f\in L^1(X,\mu)$ であり，
+    $$\lim_{n\to\infty}\int_X f_n\,d\mu=\int_X f\,d\mu$$
+    が成り立つ．さらに
+    $$\lim_{n\to\infty}\int_X |f_n-f|\,d\mu=0$$
+    すなわち $f_n\to f$ in $L^1$ である．
+\end{theorem}
+
+\begin{remark}
+    優収束定理の「優」とは，$|f_n|$ を一様に上からおさえる可積分関数 $g$ が
+    存在することをいう．この仮定のもとで，点ごとの極限と積分の交換
+    $$\lim_{n\to\infty}\int_X f_n\,d\mu=\int_X\lim_{n\to\infty}f_n\,d\mu$$
+    が正当化される．
+\end{remark}
+
+\begin{example}
+    $X=[0,1]$ にルベーグ測度を入れ，
+    $$f_n(x)=x^n \qquad (x\in[0,1])$$
+    とおく．このとき $f_n(x)\to f(x)$ a.e. で，極限関数は
+    $$f(x)=
+    \begin{cases}
+        0,& 0\le x<1,\\
+        1,& x=1
+    \end{cases}$$
+    である．また $|f_n(x)|\le 1$ であり，$g(x)=1$ は可積分だから，
+    優収束定理より
+    $$\lim_{n\to\infty}\int_0^1 x^n\,dx=\int_0^1 f(x)\,dx=0$$
+    となる．実際，
+    $$\int_0^1 x^n\,dx=\frac{1}{n+1}\to 0$$
+    である．
+\end{example}
+
 \end{document}
