@@ -670,6 +670,85 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 
 \section*{優収束定理}
 
+\begin{definition}[可測部分集合]
+    $(X,\mathcal{M},\mu)$ を測度空間とする．
+    部分集合 $A\subset X$ が $\mathcal{M}$ の元であるとき，すなわち
+    $$A\in\mathcal{M}$$
+    が成り立つとき，$A$ は \textbf{可測部分集合}であるという．
+\end{definition}
+
+\begin{proposition}[可測部分集合上の制限測度]
+    $(X,\mathcal{M},\mu)$ を測度空間とし，$A\in\mathcal{M}$ を可測部分集合とする．
+    このとき
+    $$\mathcal{M}|_A:=\{E\cap A\mid E\in\mathcal{M}\}$$
+    とおくと，$\mathcal{M}|_A$ は $A$ 上の $\sigma$-代数である．さらに
+    $B\in\mathcal{M}|_A$ に対して
+    $$\mu|_A(B):=\mu(B)$$
+    と定めると，$\mu|_A$ は $(A,\mathcal{M}|_A)$ 上の測度である．
+    したがって
+    $$(A,\mathcal{M}|_A,\mu|_A)$$
+    は測度空間をなす．この $\mu|_A$ を $\mu$ の $A$ への\textbf{制限測度}という．
+\end{proposition}
+
+\begin{proof}
+    まず $\mathcal{M}|_A$ が $A$ 上の $\sigma$-代数であることを示す．
+
+    まず $X\in\mathcal{M}$ であるから
+    $$A=X\cap A\in\mathcal{M}|_A$$
+    である．
+
+    次に $B\in\mathcal{M}|_A$ とする．このときある $E\in\mathcal{M}$ が存在して
+    $$B=E\cap A$$
+    と書ける．よって $A$ における補集合は
+    $$A\setminus B=A\setminus(E\cap A)=A\cap E^c=E^c\cap A$$
+    と表される．$E^c\in\mathcal{M}$ だから
+    $$A\setminus B\in\mathcal{M}|_A$$
+    である．
+
+    さらに $B_n\in\mathcal{M}|_A\ (n\in\mathbb{N})$ とすると，各 $n$ に対して
+    ある $E_n\in\mathcal{M}$ が存在して
+    $$B_n=E_n\cap A$$
+    と書ける．したがって
+    $$\bigcup_{n=1}^{\infty}B_n
+    =\bigcup_{n=1}^{\infty}(E_n\cap A)
+    =\left(\bigcup_{n=1}^{\infty}E_n\right)\cap A$$
+    である．$\mathcal{M}$ は $\sigma$-代数だから $\bigcup_{n=1}^{\infty}E_n\in\mathcal{M}$ であり，
+    ゆえに
+    $$\bigcup_{n=1}^{\infty}B_n\in\mathcal{M}|_A$$
+    となる．以上より $\mathcal{M}|_A$ は $A$ 上の $\sigma$-代数である．
+
+    次に $\mu|_A$ が $(A,\mathcal{M}|_A)$ 上の測度であることを示す．
+    $A\in\mathcal{M}$ であり，$B\in\mathcal{M}|_A$ はある $E\in\mathcal{M}$ によって
+    $B=E\cap A$ と書けるから，$B\in\mathcal{M}$ である．したがって
+    $\mu(B)$ は確かに定義され，$\mu|_A(B):=\mu(B)$ は well-defined である．
+
+    また
+    $$\mu|_A(\emptyset)=\mu(\emptyset)=0$$
+    が成り立つ．
+
+    さらに，$\{B_n\}_{n=1}^{\infty}\subset\mathcal{M}|_A$ を互いに素な集合列とすると，
+    各 $B_n$ は $X$ の部分集合でもあり，互いに素である．したがって $\mu$ の可算加法性より
+    \begin{align*}
+        \mu|_A\!\left(\bigcup_{n=1}^{\infty}B_n\right)
+        &=\mu\!\left(\bigcup_{n=1}^{\infty}B_n\right)\\
+        &=\sum_{n=1}^{\infty}\mu(B_n)\\
+        &=\sum_{n=1}^{\infty}\mu|_A(B_n)
+    \end{align*}
+    となる．よって $\mu|_A$ は可算加法的である．
+
+    以上より $\mu|_A$ は $(A,\mathcal{M}|_A)$ 上の測度であり，
+    $(A,\mathcal{M}|_A,\mu|_A)$ は測度空間である．
+\end{proof}
+
+\begin{remark}
+    任意の $B\in\mathcal{M}|_A$ は $X$ の可測集合でもあるから，
+    制限測度は
+    $$\mu|_A(B)=\mu(B)\qquad (B\in\mathcal{M}|_A)$$
+    と書ける．この意味で，$A$ 上の積分
+    $$\int_A f\,d\mu$$
+    は制限測度空間 $(A,\mathcal{M}|_A,\mu|_A)$ における積分とみなせる．
+\end{remark}
+
 \begin{theorem}[優収束定理]
     $(X,\mathcal{M},\mu)$ を測度空間とし，可測関数列 $f_n\colon X\to\mathbb{R}$ と
     可測関数 $f\colon X\to\mathbb{R}$ が
