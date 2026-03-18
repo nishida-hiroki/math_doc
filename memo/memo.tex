@@ -63,6 +63,9 @@
     いい加減なメモ
 \end{abstract}
 
+\tableofcontents
+\newpage
+
 $t$が実数全体を動くとき
 $x,y$平面上の曲線$y=tx+t^2$
 が通過する領域は
@@ -70,7 +73,7 @@ $x,y$平面上の曲線$y=tx+t^2$
     &\{ (x,y)\in \mathbb{R}^2
     \mid \exists t\in \mathbb{R}
     \text{ s.t. }t^2+xt-y=0\}\\
-    \Leftrightarrow
+    =
     &\{ (x,y)\in \mathbb{R}^2
     \mid x^2+4y\geq 0\}
 \end{align*}
@@ -85,7 +88,7 @@ $t$が非負実数全体を動くときの通過する領域は
 である．$x$を固定して$y$の範囲を見る．
 こうすることで境界がある関数$x\mapsto y$で
 表現できたりする．
-状況によって$x$と$y$は逆でもいい．
+状況によって$x$と$y$は回転させたり平行移動させたりするとよい．
 \begin{align*}
     t^2+xt-y=0\Leftrightarrow 
     \left( t+\frac{x}{2}\right)^2-
@@ -167,7 +170,7 @@ Roman,\\
 
 
 
-\section*{半直積}
+\section{半直積}
 
 \begin{definition}[内部半直積]
     群$G$の部分群$N,H$が次を満たすとき，
@@ -202,7 +205,7 @@ Roman,\\
     $\bar{N}$と$\bar{H}$の内部半直積である．
 \end{remark}
 
-\section*{群拡大}
+\section{群拡大}
 
 \begin{definition}[群拡大]
     群$N,G,Q$と群準同型$i\colon N\to G$，$\pi\colon G\to Q$が
@@ -239,7 +242,7 @@ Roman,\\
 \end{remark}
 
 
-\section*{位相と収束}
+\section{位相と収束}
 
 $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可測関数の列とする．
 
@@ -335,7 +338,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 \end{definition}
 
 
-\section*{距離関数}
+\section{距離関数}
 
 \begin{definition}[コサイン類似度・コサイン距離]
     $\bm{x},\bm{y}\in\mathbb{R}^n\setminus\{\bm{0}\}$に対して，
@@ -450,9 +453,9 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 
 
 
-\section*{クォータニオン・回転行列・オイラー角}
+\section{クォータニオン・回転行列・オイラー角}
 
-\subsection*{クォータニオン}
+\subsection{クォータニオン}
 
 \begin{definition}[クォータニオン（四元数）]
     虚数単位$i,j,k$が
@@ -495,7 +498,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     二重被覆の構造をもつ．
 \end{remark}
 
-\subsection*{回転行列}
+\subsection{回転行列}
 
 \begin{definition}[$SO(3)$（三次元回転群）]
     \textbf{三次元回転群}を
@@ -526,7 +529,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     である．
 \end{proposition}
 
-\subsection*{オイラー角}
+\subsection{オイラー角}
 
 \begin{definition}[オイラー角（ZYX 規約，航空機規約）]
     $\psi$（ヨー），$\theta$（ピッチ），$\phi$（ロール）を
@@ -582,7 +585,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     で与えられる．
 \end{proposition}
 
-\section*{確率}
+\section{確率}
 
 \begin{definition}[確率空間・コルモゴロフの公理]
     集合$\Omega$（\textbf{標本空間}），$\sigma$-加法族$\mathcal{F}\subset 2^\Omega$（\textbf{事象族}），
@@ -612,9 +615,9 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
 \end{remark}
 
 
-\section*{微分方程式}
+\section{微分方程式}
 
-\subsection*{特異解と包絡線}
+\subsection{特異解と包絡線}
 
 \begin{definition}[特異解]
     1階 ODE $F(x,y,y')=0$ の解で，
@@ -652,7 +655,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     包絡線は任意定数 $c$ を含まず一般解の族に属さないから，特異解である．
 \end{proof}
 
-\subsection*{クレロー方程式}
+\subsection{クレロー方程式}
 
 \begin{definition}[クレロー方程式]
     $p=y'$ とおくとき，
@@ -706,7 +709,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     これは各接線の包絡線（放物線それ自身）に一致する．
 \end{example}
 
-\subsection*{ラグランジュ方程式}
+\subsection{ラグランジュ方程式}
 
 \begin{definition}[ラグランジュ方程式]
     $p=y'$ とおくとき，
@@ -742,7 +745,7 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     いずれの場合も，包絡線が特異解であることの保証は命題\uref{prop:envelope-singular}による．
 \end{remark}
 
-\section*{優収束定理}
+\section{優収束定理}
 
 \begin{definition}[可測部分集合]
     $(X,\mathcal{M},\mu)$ を測度空間とする．
@@ -859,5 +862,131 @@ $(X,\mathcal{M},\mu)$を測度空間とし，$f_n,f\colon X\to\mathbb{R}$を可�
     $$\int_0^1 x^n\,dx=\frac{1}{n+1}\to 0$$
     である．
 \end{example}
+
+\section{圏論}
+
+\begin{definition}[圏]
+    \textbf{圏} $\mathcal{C}$ とは，次のデータからなる：
+    \begin{enumerate}
+        \item 対象の集まり $\mathrm{Ob}(\mathcal{C})$
+        \item 各 $X,Y\in\mathrm{Ob}(\mathcal{C})$ に対して，$X$ から $Y$ への射の集まり
+        $\mathrm{Hom}_{\mathcal{C}}(X,Y)$
+        \item 各 $X,Y,Z\in\mathrm{Ob}(\mathcal{C})$ に対して定まる合成
+        \[
+            \mathrm{Hom}_{\mathcal{C}}(Y,Z)\times
+            \mathrm{Hom}_{\mathcal{C}}(X,Y)
+            \to
+            \mathrm{Hom}_{\mathcal{C}}(X,Z),\quad
+            (g,f)\mapsto g\circ f
+        \]
+        \item 各対象 $X$ に対して定まる恒等射
+        \[
+            \mathrm{id}_X\in\mathrm{Hom}_{\mathcal{C}}(X,X)
+        \]
+    \end{enumerate}
+    ただし，これらは次の2条件を満たす：
+    \begin{enumerate}
+        \item \textbf{結合律}：
+        $f\colon W\to X$，$g\colon X\to Y$，$h\colon Y\to Z$ に対して
+        \[
+            (h\circ g)\circ f=h\circ(g\circ f)
+        \]
+        \item \textbf{単位律}：
+        $f\colon X\to Y$ に対して
+        \[
+            f\circ \mathrm{id}_X=f,\qquad
+            \mathrm{id}_Y\circ f=f
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[対象と射]
+    圏 $\mathcal{C}$ の元 $\mathrm{Ob}(\mathcal{C})$ の元を
+    \textbf{対象}という．
+    また $\mathrm{Hom}_{\mathcal{C}}(X,Y)$ の元を
+    $X$ から $Y$ への\textbf{射}といい，
+    $f\in\mathrm{Hom}_{\mathcal{C}}(X,Y)$ を
+    \[
+        f\colon X\to Y
+    \]
+    と書く．
+\end{definition}
+
+\begin{definition}[同型]
+    圏 $\mathcal{C}$ において，射 $f\colon X\to Y$ が
+    \textbf{同型}であるとは，ある射 $g\colon Y\to X$ が存在して
+    \[
+        g\circ f=\mathrm{id}_X,\qquad
+        f\circ g=\mathrm{id}_Y
+    \]
+    を満たすことをいう．このとき $X$ と $Y$ は\textbf{同型}であるといい，
+    \[
+        X\cong Y
+    \]
+    と書く．
+\end{definition}
+
+\begin{definition}[関手]
+    圏 $\mathcal{C},\mathcal{D}$ に対して，
+    \textbf{（共変）関手} $F\colon \mathcal{C}\to\mathcal{D}$ とは，
+    次を対応させるものである：
+    \begin{enumerate}
+        \item 各対象 $X\in\mathrm{Ob}(\mathcal{C})$ に対して対象
+        $F(X)\in\mathrm{Ob}(\mathcal{D})$
+        \item 各射 $f\colon X\to Y$ に対して射
+        $F(f)\colon F(X)\to F(Y)$
+    \end{enumerate}
+    ただし，これらは次の2条件を満たす：
+    \begin{enumerate}
+        \item \textbf{恒等射の保存}：
+        任意の対象 $X$ に対して
+        \[
+            F(\mathrm{id}_X)=\mathrm{id}_{F(X)}
+        \]
+        \item \textbf{合成の保存}：
+        合成可能な射 $f\colon X\to Y$，$g\colon Y\to Z$ に対して
+        \[
+            F(g\circ f)=F(g)\circ F(f)
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[反変関手]
+    圏 $\mathcal{C},\mathcal{D}$ に対して，
+    \textbf{反変関手} $F\colon \mathcal{C}\to\mathcal{D}$ とは，
+    各対象 $X$ に対象 $F(X)$ を対応させ，
+    各射 $f\colon X\to Y$ に射
+    \[
+        F(f)\colon F(Y)\to F(X)
+    \]
+    を対応させるものであって，次を満たすものである：
+    \begin{enumerate}
+        \item 任意の対象 $X$ に対して
+        \[
+            F(\mathrm{id}_X)=\mathrm{id}_{F(X)}
+        \]
+        \item 合成可能な射 $f\colon X\to Y$，$g\colon Y\to Z$ に対して
+        \[
+            F(g\circ f)=F(f)\circ F(g)
+        \]
+    \end{enumerate}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{集合の圏} $\mathbf{Set}$：
+        対象を集合，射を写像とする圏である．
+        \item \textbf{群の圏} $\mathbf{Grp}$：
+        対象を群，射を群準同型とする圏である．
+        \item 任意の半順序集合 $(P,\leq)$ から圏を作れる：
+        対象を $P$ の元とし，$x\leq y$ のときに限り
+        $x\to y$ という射をちょうど1つもつ圏である．
+        \item \textbf{忘却関手} $U\colon \mathbf{Grp}\to\mathbf{Set}$：
+        群 $G$ にその台集合 $U(G)$ を対応させ，
+        群準同型 $f\colon G\to H$ に同じ写像
+        $U(f)\colon U(G)\to U(H)$ を対応させる関手である．
+    \end{enumerate}
+\end{example}
+
 
 \end{document}
