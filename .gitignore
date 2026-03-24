@@ -1,10 +1,13 @@
 *.aux
 *.dvi
+*.fdb_latexmk
+*.fls
 *.log
 *.out
 *.gz
 *.pdf
 *.toc
+build/
 !pdf/*.pdf
 
 # Book database tool
