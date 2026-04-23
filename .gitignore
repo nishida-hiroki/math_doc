@@ -1,0 +1,22 @@
+# LaTeX build artifacts
+*.aux
+*.dvi
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Generated PDFs are built and released by CI
+*.pdf
+
+# Temporary engine-specific files
+pdflatex*.fls
+
