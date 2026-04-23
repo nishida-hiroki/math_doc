@@ -1,0 +1,59 @@
+name: Build PDFs and Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: "Release tag name, for example v1.0.0"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Build PDFs
+        uses: xu-cheng/texlive-action@v3
+        with:
+          scheme: full
+          run: |
+            set -eu
+            mkdir -p dist
+
+            for tex in */*.tex; do
+              dir="$(dirname "$tex")"
+              base="$(basename "$tex" .tex)"
+
+              (
+                cd "$dir"
+                uplatex -interaction=nonstopmode -halt-on-error "$base.tex"
+                uplatex -interaction=nonstopmode -halt-on-error "$base.tex"
+                dvipdfmx "$base.dvi"
+              )
+
+              cp "$dir/$base.pdf" "dist/$base.pdf"
+            done
+
+      - name: Upload PDFs as workflow artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: pdfs
+          path: dist/*.pdf
+
+      - name: Release PDFs
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.ref_name }}
+          target_commitish: ${{ github.sha }}
+          files: dist/*.pdf
+          generate_release_notes: true
