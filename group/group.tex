@@ -190,7 +190,7 @@
 \begin{proposition}
     類等式の右辺の数字は次の性質をもつ．
     \begin{enumerate}
-        \item 必ず$1$が$1$は出現する．
+        \item 必ず$1$が$1$回は出現する．
         \item すべて$|G|$の約数である．
         \item $1$は$|G|$の約数個出現する．
     \end{enumerate}
@@ -210,8 +210,22 @@
 \begin{proposition}
     $G$を有限群，$P(G)$を部分集合全体とする．さらに
     左作用を$G\times P(G)\rightarrow P(G);(g,S)\mapsto g\circ S=\{ gs\mid s\in S\}$
-    と定める．このとき，部分集合$S\subset G$に対し$\lvert S\rvert \bigm| \lvert \operatorname{Stab}(S)\rvert$が成り立つ．
+    と定める．このとき，
+    部分集合$S\subset G$に対し
+    $\lvert S\rvert \bigm| \lvert \operatorname{Stab}(S)\rvert$が成り立つ．
 \end{proposition}
+
+\begin{proof}
+    $H=\operatorname{Stab}(S)$とおく．
+    $s_i\in S$に対して$s_iH\subset S$であることより，
+    $\displaystyle S=\bigcup_is_ie \subset \bigcup_i
+    s_iH\subset S$が成り立つ．よって$\displaystyle \bigcup_i
+    s_iH=S$である．$s_j\in S \setminus s_iH$をとると$s_jH\cap
+    s_iH=\phi$である．これにより$\{ s_1,\ldots s_n\} \subset S$
+    が存在して$\displaystyle\coprod_{i=1}^ns_iH=S$となる．
+    よって$\lvert s_iH\rvert=\lvert H\rvert$であることから
+    $\lvert S\rvert \bigm| \lvert H \rvert$が成り立つ．
+\end{proof}
 \begin{theorem}[シローの定理]
     $G$を有限群，$n=|G|$，$p$を$n$の素因数とし，
     $p^a$を$n$を割り切る最大の$p$冪とする．
